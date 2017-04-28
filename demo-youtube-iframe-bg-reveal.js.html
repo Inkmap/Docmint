@@ -70,68 +70,14 @@
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Start06Dots.png" data-transition="fade" data-background-transition="fade">
-            </section>
             <section id="home" data-background="assets/demo-ubahn-reveal.js-menu/Start07GreenLine.png" data-transition="fade" data-background-transition="fade">
-                <h1>Connect the dots</h1>
+                <h1>Youtube in background</h1>
             </section>
             <section data-background="assets/demo-ubahn-reveal.js-menu/Start08AllLines.png" data-background-transition="fade">
-                <h1>The dots<br>of Kreuzberg Central</h1>
+                <h1>U-Bahn in underground</h1>
             </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Start09Letters.png" data-transition="fade" data-background-transition="fade">
-            </section>
-            <section id="start" data-background="#000000">
-                <h1>Lesson One</h1>
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-Moeckernbruecke-notext.png" data-background-transition="fade">
-                <br><br>
-                <br><br>
-                <h4>There is nothing West of this stop.</h4>
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-Moeckernbruecke.png" data-transition="fade" data-background-transition="fade">
-            </section>
-            <section data-background-transition="slide">
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-HalleschesTor.png" data-background-transition="slide">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Hallesches_Tor_1901.jpg" data-background-transition="slide">
-                    <h4>A rare picture without graffiti.</h4>
-                </section>
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-Prinzenstrasse.png" data-background-transition="slide">
-            </section>
-            <section data-background-transition="slide">
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Kottbusser_Tor_Panorama.jpg" data-background-transition="slide">
-                    <h1>Go<br>Underground<br>Here</h1>
-                    <p>Kottbusser Tor</p>
-                </section>
-                <!--section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-KottbusserTor.png" data-background-transition="slide">
-    				</section-->
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Berlin-_U-Bahnhof_Kottbusser_Tor-_U_8-_auf_Bahnsteig_6.8.2010.jpg" data-background-transition="zoom">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Schoenleinstr-ubahn.jpg" data-background-transition="zoom">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-Schoenleinstrasse.png" data-background-transition="zoom">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Schoenleinstr-ubahn.jpg" data-background-transition="zoom">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/UBahnhof_Hermannplatz.JPG" data-background-transition="zoom">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-Herrmannplatz.png" data-background-transition="zoom">
-                </section>
-                <section data-background="red" data-background-transition="zoom">
-                    <h1>STOP!</h1>
-                    <h3>This is as South as any real Kreuzberger/in would go.</h3>
-                </section>
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-GoerlitzerBhf.png" data-background-transition="slide">
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-SchlesischesTor.png" data-background-transition="slide">
-            </section>
-
-            <section id="end">
-                <h3>End of Kreuzberg</h3>
-                <p>This is the last stop in Kreuzberg. <br>If you dare, stay on the train...</p>
-                <p>... and enter Friedrichshain.</p>
+            <section data-background-youtube-video="cSBMZJWOKT4" data-background-transition="fade">
+                <h1>U8 Kottbusser Tor</h1>
             </section>
         </div>
 
@@ -222,6 +168,8 @@
                 callback: function() {
                     hljs.initHighlightingOnLoad();
                 }
+            }, {
+                src: 'vendor/revealjs/plugin/background-youtube-video/background-youtube-video.js'
             }, {
                 src: 'vendor/revealjs/plugin/zoom-js/zoom.js',
                 async: true
