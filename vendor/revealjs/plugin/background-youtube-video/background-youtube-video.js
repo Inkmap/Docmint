@@ -42,8 +42,13 @@ function onPlayerReady() {
 var startBackgroundYoutubeVideo = function(currentSlide) {
     var backgroundYoutubeVideoId = currentSlide.getAttribute('data-background-youtube-video') || false;
     var backgroundYoutubeVideos = document.querySelectorAll('[data-background-youtube-video]');
+    var backgroundYoutubeVideoWrapper = document.querySelectorAll('.background-youtube-video');
 
-    document.querySelector('.background-youtube-video').style.display = 'none';
+
+    [].forEach.call(backgroundYoutubeVideoWrapper, function(wrapper) {
+
+        wrapper.style.display = 'none';
+    });
 
     [].forEach.call(backgroundYoutubeVideos, function(div, index) {
 
