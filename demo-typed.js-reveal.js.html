@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="vendor/revealjs/css/reveal.css">
     <link rel="stylesheet" href="vendor/revealjs/css/theme/bloodandchocolate.css" id="theme">
-
+    <link rel="stylesheet" href="vendor/animate.css-master/animate.min.css">
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="vendor/revealjs/lib/css/zenburn.css">
 
@@ -46,20 +46,30 @@
         .txtshadowthick {
             text-shadow: 2px 2px 5px #000!important;
         }
-        /* styles for background youtube video */
-        
-        .reveal .background-youtube-video {
-            background-color: red;
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            max-height: 100%;
-            max-width: 100%;
-            display: none;
+        /* typing cursor */
+      .typed-cursor {
+        	display: none;
+      }
+        .typed-cursor{
+        	opacity: 1;
+        	-webkit-animation: blink 0.7s infinite;
+        	-moz-animation: blink 0.7s infinite;
+        	animation: blink 0.7s infinite;
+        }
+        @keyframes blink{
+        	0% { opacity:1; }
+        	50% { opacity:0; }
+        	100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+        	0% { opacity:1; }
+        	50% { opacity:0; }
+        	100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+        	0% { opacity:1; }
+        	50% { opacity:0; }
+        	100% { opacity:1; }
         }
     </style>
 </head>
@@ -70,68 +80,17 @@
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Start06Dots.png" data-transition="fade" data-background-transition="fade">
-            </section>
             <section id="home" data-background="assets/demo-ubahn-reveal.js-menu/Start07GreenLine.png" data-transition="fade" data-background-transition="fade">
-                <h1>Connect the dots</h1>
+                <h1>Youtube in background</h1>
+            </section>
+            <section data-state="typed1">
+                <h3 class="typed"></h3>
+            </section>
+            <section data-state="typed2">
+                <h3 class="typed"></h3>
             </section>
             <section data-background="assets/demo-ubahn-reveal.js-menu/Start08AllLines.png" data-background-transition="fade">
-                <h1>The dots<br>of Kreuzberg Central</h1>
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Start09Letters.png" data-transition="fade" data-background-transition="fade">
-            </section>
-            <section id="start" data-background="#000000">
-                <h1>Lesson One</h1>
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-Moeckernbruecke-notext.png" data-background-transition="fade">
-                <br><br>
-                <br><br>
-                <h4>There is nothing West of this stop.</h4>
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-Moeckernbruecke.png" data-transition="fade" data-background-transition="fade">
-            </section>
-            <section data-background-transition="slide">
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-HalleschesTor.png" data-background-transition="slide">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Hallesches_Tor_1901.jpg" data-background-transition="slide">
-                    <h4>A rare picture without graffiti.</h4>
-                </section>
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-Prinzenstrasse.png" data-background-transition="slide">
-            </section>
-            <section data-background-transition="slide">
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Kottbusser_Tor_Panorama.jpg" data-background-transition="slide">
-                    <h1>Go<br>Underground<br>Here</h1>
-                    <p>Kottbusser Tor</p>
-                </section>
-                <!--section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-KottbusserTor.png" data-background-transition="slide">
-    				</section-->
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Berlin-_U-Bahnhof_Kottbusser_Tor-_U_8-_auf_Bahnsteig_6.8.2010.jpg" data-background-transition="zoom">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Schoenleinstr-ubahn.jpg" data-background-transition="zoom">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-Schoenleinstrasse.png" data-background-transition="zoom">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Schoenleinstr-ubahn.jpg" data-background-transition="zoom">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/UBahnhof_Hermannplatz.JPG" data-background-transition="zoom">
-                </section>
-                <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-Herrmannplatz.png" data-background-transition="zoom">
-                </section>
-                <section data-background="red" data-background-transition="zoom">
-                    <h1>STOP!</h1>
-                    <h3>This is as South as any real Kreuzberger/in would go.</h3>
-                </section>
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-GoerlitzerBhf.png" data-background-transition="slide">
-            </section>
-            <section data-background="assets/demo-ubahn-reveal.js-menu/Ubahn-SchlesischesTor.png" data-background-transition="slide">
-            </section>
-
-            <section id="end">
-                <h3>End of Kreuzberg</h3>
-                <p>This is the last stop in Kreuzberg. <br>If you dare, stay on the train...</p>
-                <p>... and enter Friedrichshain.</p>
+                <h1 data-delay="2" data-animate="fadeOut">U-Bahn in underground</h1>
             </section>
         </div>
 
@@ -139,10 +98,25 @@
 
     <script src="vendor/revealjs/lib/js/head.min.js"></script>
     <script src="vendor/revealjs/js/reveal.js"></script>
+    <script src="vendor/jquery/jquery.3.2.1.min.js"></script>
+    <script src="vendor/typed.js-master/js/typed.js"></script>
     <script>
     </script>
 
     <script>
+        /* two typing events in slides */
+	    Reveal.addEventListener('typed1', function(){
+    		Typed.new(".typed", {
+    			strings: ["Te fyrst typ", "The first typed slide."],
+    			typeSpeed: 0
+    		});
+    	});
+	    Reveal.addEventListener('typed2', function(){
+    		Typed.new(".typed", {
+    			strings: ["And the second."],
+    			typeSpeed: 0
+    		});
+    	});
         // Full list of configuration options available at:
         // https://github.com/hakimel/reveal.js#configuration
         Reveal.initialize({
