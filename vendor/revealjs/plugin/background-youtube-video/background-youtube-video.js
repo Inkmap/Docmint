@@ -21,12 +21,34 @@ function onYouTubeIframeAPIReady() {
 
         backgroundYoutubeVideoPlayers[backgroundYoutubeVideoId] = new YT.Player(backgroundYoutubeVideo, {
             videoId: backgroundYoutubeVideoId,
+            playerVars: { 'controls': 0 },
             events: {
                 'onReady': onPlayerReady
             }
         });
     });
 
+    // video controls
+    var backgroundYoutubeVideoControls = document.createElement('div');
+    backgroundYoutubeVideoControls.className = 'background-youtube-video-controls';
+
+    var backgroundYoutubeVideoControlsToggleAudio = document.createElement('div');
+    backgroundYoutubeVideoControlsToggleAudio.className = 'background-youtube-video-controls-audio';
+    backgroundYoutubeVideoControlsToggleAudio.innerText = 'Audio on';
+
+    var backgroundYoutubeVideoControlsToggleState = document.createElement('div');
+    backgroundYoutubeVideoControlsToggleState.className = 'background-youtube-video-controls-state';
+    backgroundYoutubeVideoControlsToggleState.innerText = 'Playing';
+
+    var backgroundYoutubeVideoControlsReload = document.createElement('div');
+    backgroundYoutubeVideoControlsReload.className = 'background-youtube-video-controls-reload';
+    backgroundYoutubeVideoControlsReload.innerText = 'Reload';
+
+    backgroundYoutubeVideoControls.appendChild(backgroundYoutubeVideoControlsToggleAudio);
+    backgroundYoutubeVideoControls.appendChild(backgroundYoutubeVideoControlsToggleState);
+    backgroundYoutubeVideoControls.appendChild(backgroundYoutubeVideoControlsReload);
+
+    document.querySelector('body').appendChild(backgroundYoutubeVideoControls)
 }
 
 function onPlayerReady() {
