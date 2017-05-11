@@ -119,7 +119,10 @@ function onYouTubeIframeAPIReady() {
 
         backgroundYoutubeVideoPlayers[backgroundYoutubeVideoId] = new YT.Player(backgroundYoutubeVideo, {
             videoId: backgroundYoutubeVideoId,
-            playerVars: { 'controls': 0 },
+            playerVars: {
+                'controls': 0,
+                'playsinline': 1
+            },
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
