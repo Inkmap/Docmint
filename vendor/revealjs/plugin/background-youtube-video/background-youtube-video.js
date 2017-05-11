@@ -110,6 +110,8 @@ function onYouTubeIframeAPIReady() {
     [].forEach.call(backgroundYoutubeVideos, function(div, index) {
 
         var backgroundYoutubeVideoId = div.getAttribute('data-background-youtube-video');
+        var backgroundYoutubeVideoShowinfo = div.getAttribute('data-background-youtube-video-showinfo') || 0;
+        var backgroundYoutubeVideoRel = div.getAttribute('data-background-youtube-video-rel') || 0;
 
         var backgroundYoutubeVideo = document.createElement('div');
         backgroundYoutubeVideo.className = 'background-youtube-video';
@@ -121,7 +123,9 @@ function onYouTubeIframeAPIReady() {
             videoId: backgroundYoutubeVideoId,
             playerVars: {
                 'controls': 0,
-                'playsinline': 1
+                'playsinline': 1,
+                'showinfo': backgroundYoutubeVideoShowinfo,
+                'rel': backgroundYoutubeVideoRel
             },
             events: {
                 'onReady': onPlayerReady,
