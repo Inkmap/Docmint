@@ -21,7 +21,7 @@ function createYoutubeIframeControls(id) {
 
     var backgroundYoutubeVideoControlsToggleState = document.createElement('div');
     backgroundYoutubeVideoControlsToggleState.className = 'background-youtube-video-controls-state';
-    backgroundYoutubeVideoControlsToggleState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>';
+    backgroundYoutubeVideoControlsToggleState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M14,19H18V5H14M6,19H10V5H6V19Z" /></svg>';
     backgroundYoutubeVideoControlsToggleState.id = 'background-youtube-video-controls-state' + id;
 
     var backgroundYoutubeVideoControlsReload = document.createElement('div');
@@ -67,10 +67,10 @@ function handleYoutubeIframeState(id) {
         control.addEventListener('click', function() {
             if (isPlaying) {
                 currentPlayer.pauseVideo();
-                backgroundYoutubeVideoControlsState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M14,19H18V5H14M6,19H10V5H6V19Z" /></svg>';
+                backgroundYoutubeVideoControlsState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>';
             } else {
                 currentPlayer.playVideo();
-                backgroundYoutubeVideoControlsState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>';
+                backgroundYoutubeVideoControlsState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M14,19H18V5H14M6,19H10V5H6V19Z" /></svg>';
             }
         });
     });
