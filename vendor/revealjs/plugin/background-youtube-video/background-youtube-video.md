@@ -24,9 +24,17 @@ data-background-youtube-video="videoID"
  
 data-background-youtube-video-showinfo="1" 
 
+values:
+0 // (default) no info is shown
+1 // title is shown of the video
+
 ## data-background-youtube-video-rel
 
 data-background-youtube-video-rel="1"
+
+values:
+0 // (default) no related videos are shown when the video has finished
+1 // related videos are shown when the video has finished
 
 # Changing colours for the player control
 
@@ -40,7 +48,16 @@ via CSS.
 }
 ~~~
 
-The colours for the player control 
+# Custom event 
+
+When the video is finished a custom event ```videoFinished``` will be triggered.
+
+For example to show the next slide once the video has finished you can use:
+~~~
+document.querySelector('html').addEventListener('videoFinished', function(e) {
+    Reveal.next();
+}, false);
+~~~
 
 # Adding as dependencies to the HTML document
 
