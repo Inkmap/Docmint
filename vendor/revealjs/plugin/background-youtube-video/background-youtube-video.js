@@ -1,5 +1,6 @@
 // background youtube video
 var tag = document.createElement('script');
+var videoFinishedEvent = new Event('videoFinished');
 
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -130,6 +131,13 @@ function onYouTubeIframeAPIReady() {
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
+            }
+        });
+
+        // trigger custom event when video has finished
+        backgroundYoutubeVideoPlayers[backgroundYoutubeVideoId].addEventListener("onStateChange", function(state) {
+            if (state.data === 0) {
+                document.querySelector('html').dispatchEvent(videoFinishedEvent);
             }
         });
 
