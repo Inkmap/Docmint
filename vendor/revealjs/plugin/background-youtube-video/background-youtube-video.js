@@ -112,11 +112,22 @@ function onYouTubeIframeAPIReady() {
 
         var backgroundYoutubeVideoId = div.getAttribute('data-background-youtube-video');
         var backgroundYoutubeVideoShowinfo = div.getAttribute('data-background-youtube-video-showinfo') || 0;
-        var backgroundYoutubeVideoRel = div.getAttribute('data-background-youtube-video-rel') || 0;
+        var backgroundYoutubeVideoFinished = div.getAttribute('data-background-youtube-video-finished') || false;
+        var backgroundYoutubeVideoRel = div.getAttribute('data-background-youtube-video-finished') || 0;
+
+        if (backgroundYoutubeVideoRel === 'related') {
+            backgroundYoutubeVideoRel = 1;
+        } else {
+            backgroundYoutubeVideoRel = 0;
+        }
 
         var backgroundYoutubeVideo = document.createElement('div');
         backgroundYoutubeVideo.className = 'background-youtube-video';
         backgroundYoutubeVideo.id = 'background-youtube-video-' + backgroundYoutubeVideoId;
+
+        if (backgroundYoutubeVideoFinished === 'nextSlide') {
+            backgroundYoutubeVideo.setAttribute('data-finished', backgroundYoutubeVideoFinished);
+        }
 
         document.querySelector('.backgrounds').appendChild(backgroundYoutubeVideo);
 
@@ -134,10 +145,14 @@ function onYouTubeIframeAPIReady() {
             }
         });
 
+
         // trigger custom event when video has finished
-        backgroundYoutubeVideoPlayers[backgroundYoutubeVideoId].addEventListener("onStateChange", function(state) {
-            if (state.data === 0) {
+        backgroundYoutubeVideoPlayers[backgroundYoutubeVideoId].addEventListener("onStateChange", function(event) {
+            if (event.data === 0) {
                 document.querySelector('html').dispatchEvent(videoFinishedEvent);
+                if (event.target.a.hasAttribute('data-finished')) {
+                    Reveal.next();
+                }
             }
         });
 

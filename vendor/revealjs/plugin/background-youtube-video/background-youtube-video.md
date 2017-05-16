@@ -28,13 +28,14 @@ values:
 0 // (default) no info is shown
 1 // title is shown of the video
 
-## data-background-youtube-video-rel
+## data-background-youtube-video-finished
 
-data-background-youtube-video-rel="1"
+data-background-youtube-video-finished="nextSlide"
 
 values:
-0 // (default) no related videos are shown when the video has finished
-1 // related videos are shown when the video has finished
+0 // (default) do nothing
+"related" // related videos are shown when the video has finished
+"nextSlide" // next slide will be shown  when the video has finished
 
 # Changing colours for the player control
 
