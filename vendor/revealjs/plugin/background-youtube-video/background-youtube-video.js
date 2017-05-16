@@ -1,5 +1,6 @@
 // background youtube video
 var tag = document.createElement('script');
+var videoFinishedEvent = new Event('videoFinished');
 
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -21,7 +22,7 @@ function createYoutubeIframeControls(id) {
 
     var backgroundYoutubeVideoControlsToggleState = document.createElement('div');
     backgroundYoutubeVideoControlsToggleState.className = 'background-youtube-video-controls-state';
-    backgroundYoutubeVideoControlsToggleState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>';
+    backgroundYoutubeVideoControlsToggleState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M14,19H18V5H14M6,19H10V5H6V19Z" /></svg>';
     backgroundYoutubeVideoControlsToggleState.id = 'background-youtube-video-controls-state' + id;
 
     var backgroundYoutubeVideoControlsReload = document.createElement('div');
@@ -67,10 +68,10 @@ function handleYoutubeIframeState(id) {
         control.addEventListener('click', function() {
             if (isPlaying) {
                 currentPlayer.pauseVideo();
-                backgroundYoutubeVideoControlsState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M14,19H18V5H14M6,19H10V5H6V19Z" /></svg>';
+                backgroundYoutubeVideoControlsState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>';
             } else {
                 currentPlayer.playVideo();
-                backgroundYoutubeVideoControlsState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>';
+                backgroundYoutubeVideoControlsState.innerHTML = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M14,19H18V5H14M6,19H10V5H6V19Z" /></svg>';
             }
         });
     });
@@ -111,11 +112,22 @@ function onYouTubeIframeAPIReady() {
 
         var backgroundYoutubeVideoId = div.getAttribute('data-background-youtube-video');
         var backgroundYoutubeVideoShowinfo = div.getAttribute('data-background-youtube-video-showinfo') || 0;
-        var backgroundYoutubeVideoRel = div.getAttribute('data-background-youtube-video-rel') || 0;
+        var backgroundYoutubeVideoFinished = div.getAttribute('data-background-youtube-video-finished') || false;
+        var backgroundYoutubeVideoRel = div.getAttribute('data-background-youtube-video-finished') || 0;
+
+        if (backgroundYoutubeVideoRel === 'related') {
+            backgroundYoutubeVideoRel = 1;
+        } else {
+            backgroundYoutubeVideoRel = 0;
+        }
 
         var backgroundYoutubeVideo = document.createElement('div');
         backgroundYoutubeVideo.className = 'background-youtube-video';
         backgroundYoutubeVideo.id = 'background-youtube-video-' + backgroundYoutubeVideoId;
+
+        if (backgroundYoutubeVideoFinished === 'nextSlide') {
+            backgroundYoutubeVideo.setAttribute('data-finished', backgroundYoutubeVideoFinished);
+        }
 
         document.querySelector('.backgrounds').appendChild(backgroundYoutubeVideo);
 
@@ -130,6 +142,17 @@ function onYouTubeIframeAPIReady() {
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
+            }
+        });
+
+
+        // trigger custom event when video has finished
+        backgroundYoutubeVideoPlayers[backgroundYoutubeVideoId].addEventListener("onStateChange", function(event) {
+            if (event.data === 0) {
+                document.querySelector('html').dispatchEvent(videoFinishedEvent);
+                if (event.target.a.hasAttribute('data-finished')) {
+                    Reveal.next();
+                }
             }
         });
 
