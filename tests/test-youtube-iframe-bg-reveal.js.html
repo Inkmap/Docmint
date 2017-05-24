@@ -7,7 +7,7 @@
     <title>Connect the dots</title>
 
     <meta name="description" content="A slideout menu for reveal.sj, a framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Micz Flor" >
+    <meta name="author" content="Micz Flor">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -84,6 +84,34 @@
             font-family: Arial, Helvetica, sans-serif;
             fill: #fff;
         }
+        
+        .has-overlay .backgrounds {
+            z-index: 10;
+            background: #fff;
+        }
+        
+        .has-overlay .backgrounds iframe {
+            display: block;
+            width: 80vw;
+            height: 80vh;
+            margin: 0 auto;
+            top: 10vh;
+        }
+        
+        .overlayCloseButton {
+            display: none;
+            background: none;
+            border: 1px solid #000;
+            padding: 4px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+        }
+        
+        .has-overlay .overlayCloseButton {
+            display: block;
+        }
     </style>
 </head>
 
@@ -96,11 +124,11 @@
             <section id="home" data-background="../assets/demo-ubahn-reveal.js-menu/Start07GreenLine.png" data-transition="fade" data-background-transition="fade">
                 <h1>Youtube in background</h1>
             </section>
+            <section data-background-youtube-video="cSBMZJWOKT4" data-background-youtube-video-overlay="true" data-background-youtube-video-overlay-delay="10000" data-background-transition="fade">
+                <h1>U8 Kottbusser Tor with Popup video</h1>
+            </section>
             <section data-background="../assets/demo-ubahn-reveal.js-menu/Start08AllLines.png" data-background-transition="fade">
                 <h1>U-Bahn in underground</h1>
-            </section>
-            <section data-background-youtube-video="cSBMZJWOKT4" data-background-transition="fade" data-background-youtube-video-finished="nextSlide">
-                <h1>U8 Kottbusser Tor</h1>
             </section>
             <section data-background-youtube-video="CKp1hvlqjhM" data-background-youtube-video-showinfo="1" data-background-youtube-video-finished="related" data-background-transition="fade">
                 <h1>U1 Görlitzer Bahnhof</h1>
