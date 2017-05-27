@@ -9,7 +9,6 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var backgroundYoutubeVideoPlayers = [];
 var backgroundYoutubeVideos = document.querySelectorAll('[data-background-youtube-video]');
 var isPlaying = false;
-var overlayAdded = false;
 
 function createYoutubeIframeControls(id) {
     var backgroundYoutubeVideoControls = document.createElement('div');
@@ -184,28 +183,6 @@ var startBackgroundYoutubeVideo = function(currentSlide) {
     var backgroundYoutubeVideoId = currentSlide.getAttribute('data-background-youtube-video') || false;
     var backgroundYoutubeVideos = document.querySelectorAll('[data-background-youtube-video]');
     var backgroundYoutubeVideoWrapper = document.querySelectorAll('.background-youtube-video');
-    var hasOverlay = currentSlide.getAttribute('data-background-youtube-video-overlay') || false;
-    var overlayDelay = currentSlide.getAttribute('data-background-youtube-video-overlay-delay') || '0';
-
-    if (!overlayAdded) {
-        var overlayClose = document.createElement('button');
-        overlayClose.textContent = 'Close';
-        overlayClose.className = 'overlayCloseButton';
-        document.querySelector('body').appendChild(overlayClose);
-
-        overlayClose.addEventListener('click', function() {
-            document.querySelector('html').className -= ' has-overlay';
-            document.querySelector('#background-youtube-video-' + backgroundYoutubeVideoId).style.display = 'none';
-        });
-
-        overlayAdded = true;
-    }
-
-    if (hasOverlay) {
-        document.querySelector('html').className += ' has-overlay';
-    } else {
-        document.querySelector('html').className -= ' has-overlay';
-    }
 
     [].forEach.call(backgroundYoutubeVideoWrapper, function(wrapper) {
 
@@ -222,17 +199,15 @@ var startBackgroundYoutubeVideo = function(currentSlide) {
     });
 
     if (backgroundYoutubeVideoId) {
-        setTimeout(function() {
-            document.querySelector('#background-youtube-video-' + backgroundYoutubeVideoId).style.display = 'block';
-            document.querySelector('#background-youtube-video-controls-' + backgroundYoutubeVideoId).style.display = 'flex';
+        document.querySelector('#background-youtube-video-' + backgroundYoutubeVideoId).style.display = 'block';
+        document.querySelector('#background-youtube-video-controls-' + backgroundYoutubeVideoId).style.display = 'flex';
 
-            backgroundYoutubeVideoPlayers[backgroundYoutubeVideoId].playVideo();
+        backgroundYoutubeVideoPlayers[backgroundYoutubeVideoId].playVideo();
 
-            handleYoutubeIframeAudio(backgroundYoutubeVideoId)
-            handleYoutubeIframeState(backgroundYoutubeVideoId)
-            handleYoutubeIframeReload(backgroundYoutubeVideoId);
-            handleYoutubeIframeFullscreen(backgroundYoutubeVideoId);
-        }, overlayDelay);
+        handleYoutubeIframeAudio(backgroundYoutubeVideoId)
+        handleYoutubeIframeState(backgroundYoutubeVideoId)
+        handleYoutubeIframeReload(backgroundYoutubeVideoId);
+        handleYoutubeIframeFullscreen(backgroundYoutubeVideoId);
 
     }
 }
