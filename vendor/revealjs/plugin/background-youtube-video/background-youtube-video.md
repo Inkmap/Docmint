@@ -60,18 +60,6 @@ document.querySelector('html').addEventListener('videoFinished', function(e) {
 }, false);
 ~~~
 
-# Use as an overlay
-
-Add ```data-background-youtube-video-overlay="true"``` to the section where the overlay should appear along with the other data attributes for the iframe video.
-
-## Parameters
-
-data-background-youtube-video-overlay-delay="2000"
-
-values:
-0 // (default) show without delay
-value in ms // show after x ms
-
 # Adding as dependencies to the HTML document
 
 The plugin, like any other reveal.js plugin, needs to be loaded as a dependency
