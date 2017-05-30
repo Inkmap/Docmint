@@ -70,17 +70,17 @@
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
-            <section data-background="../assets/demo-ubahn-reveal.js-menu/Start06Dots.png" data-transition="fade" data-background-transition="fade">
+            <section data-menu-title="Start the journey" data-background="../assets/demo-ubahn-reveal.js-menu/Start06Dots.png" data-transition="fade" data-background-transition="fade">
             </section>
             <section id="home" data-background="../assets/demo-ubahn-reveal.js-menu/Start07GreenLine.png" data-transition="fade" data-background-transition="fade">
                 <h1>Connect the dots</h1>
             </section>
-            <section data-background="../assets/demo-ubahn-reveal.js-menu/Start08AllLines.png" data-background-transition="fade">
+            <section data-menu-title="Title" data-background="../assets/demo-ubahn-reveal.js-menu/Start08AllLines.png" data-background-transition="fade">
                 <h1>The dots<br>of Kreuzberg Central</h1>
             </section>
             <section data-background="../assets/demo-ubahn-reveal.js-menu/Start09Letters.png" data-transition="fade" data-background-transition="fade">
             </section>
-            <section id="start" data-background="#000000">
+            <section data-menu-title="Lesson One" id="start" data-background="#000000">
                 <h1>Lesson One</h1>
             </section>
             <section data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-Moeckernbruecke-notext.png" data-background-transition="fade">
@@ -91,15 +91,15 @@
             <section data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-Moeckernbruecke.png" data-transition="fade" data-background-transition="fade">
             </section>
             <section data-background-transition="slide">
-                <section data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-HalleschesTor.png" data-background-transition="slide">
+                <section data-menu-title="Hallesches Tor" data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-HalleschesTor.png" data-background-transition="slide">
                 </section>
                 <section data-background="../assets/demo-ubahn-reveal.js-menu/Hallesches_Tor_1901.jpg" data-background-transition="slide">
                     <h4>A rare picture without graffiti.</h4>
                 </section>
             </section>
-            <section data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-Prinzenstrasse.png" data-background-transition="slide">
+            <section data-menu-title="Prinzenstraße" data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-Prinzenstrasse.png" data-background-transition="slide">
             </section>
-            <section data-background-transition="slide">
+            <section data-menu-title="Kottbusser Tor" data-background-transition="slide">
                 <section data-background="../assets/demo-ubahn-reveal.js-menu/Kottbusser_Tor_Panorama.jpg" data-background-transition="slide">
                     <h1>Go<br>Underground<br>Here</h1>
                     <p>Kottbusser Tor</p>
@@ -110,22 +110,22 @@
                 </section>
                 <section data-background="../assets/demo-ubahn-reveal.js-menu/Schoenleinstr-ubahn.jpg" data-background-transition="zoom">
                 </section>
-                <section data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-Schoenleinstrasse.png" data-background-transition="zoom">
+                <section data-menu-title="Schönleinstraße" data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-Schoenleinstrasse.png" data-background-transition="zoom">
                 </section>
                 <section data-background="../assets/demo-ubahn-reveal.js-menu/Schoenleinstr-ubahn.jpg" data-background-transition="zoom">
                 </section>
-                <section data-background="../assets/demo-ubahn-reveal.js-menu/UBahnhof_Hermannplatz.JPG" data-background-transition="zoom">
+                <section data-menu-title="Herrmannplatz" data-background="../assets/demo-ubahn-reveal.js-menu/UBahnhof_Hermannplatz.JPG" data-background-transition="zoom">
                 </section>
                 <section data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-Herrmannplatz.png" data-background-transition="zoom">
                 </section>
-                <section data-background="red" data-background-transition="zoom">
+                <section data-menu-title="The end of Kreuzberg" data-background="red" data-background-transition="zoom">
                     <h1>STOP!</h1>
                     <h3>This is as South as any real Kreuzberger/in would go.</h3>
                 </section>
             </section>
-            <section data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-GoerlitzerBhf.png" data-background-transition="slide">
+            <section data-menu-title="Görlitzer Bahnhof" data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-GoerlitzerBhf.png" data-background-transition="slide">
             </section>
-            <section data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-SchlesischesTor.png" data-background-transition="slide">
+            <section data-menu-title="Schlesisches Tor" data-background="../assets/demo-ubahn-reveal.js-menu/Ubahn-SchlesischesTor.png" data-background-transition="slide">
             </section>
 
             <section id="end">
@@ -155,50 +155,75 @@
             transition: 'slide', // none/fade/slide/convex/concave/zoom
             /*backgroundTransition: 'slide',*/
 
-            menu: {
-                markers: true,
-                openSlideNumber: false,
-                transition: 'slide', // none/fade/slide/convex/concave/zoom
-                themes: [{
-                    name: 'Black',
-                    theme: '../vendor/revealjs/css/theme/black.css'
-                }, {
-                    name: 'White',
-                    theme: '../vendor/revealjs/css/theme/white.css'
-                }, {
-                    name: 'League',
-                    theme: '../vendor/revealjs/css/theme/league.css'
-                }, {
-                    name: 'Sky',
-                    theme: '../vendor/revealjs/css/theme/sky.css'
-                }, {
-                    name: 'Beige',
-                    theme: '../vendor/revealjs/css/theme/beige.css'
-                }, {
-                    name: 'Simple',
-                    theme: '../vendor/revealjs/css/theme/simple.css'
-                }, {
-                    name: 'Serif',
-                    theme: '../vendor/revealjs/css/theme/serif.css'
-                }, {
-                    name: 'Blood',
-                    theme: '../vendor/revealjs/css/theme/blood.css'
-                }, {
-                    name: 'Night',
-                    theme: '../vendor/revealjs/css/theme/night.css'
-                }, {
-                    name: 'Moon',
-                    theme: '../vendor/revealjs/css/theme/moon.css'
-                }, {
-                    name: 'Solarized',
-                    theme: '../vendor/revealjs/css/theme/solarized.css'
-                }],
-                custom: [{
-                    title: 'Custom',
-                    icon: '<i class="fa fa-bookmark">',
-                    src: 'links.html'
-                }, ]
-            },
+        	menu: {
+        		// Specifies which side of the presentation the menu will 
+        		// be shown. Use 'left' or 'right'.
+        		side: 'left',
+        
+        		// Add slide numbers to the titles in the slide list.
+        		// Use 'true' or format string (same as reveal.js slide numbers)
+        		numbers: false,
+        
+        		// Specifies which slide elements will be used for generating
+        		// the slide titles in the menu. The default selects the first
+        		// heading element found in the slide, but you can specify any
+        		// valid css selector and the text from the first matching
+        		// element will be used.
+        		// Note: that a section data-menu-title attribute or an element
+        		// with a menu-title class will take precedence over this option
+        		titleSelector: 'title',
+        
+        		// Hide slides from the menu that do not have a title.
+        		// Set to 'true' to only list slides with titles.
+        		hideMissingTitles: true,
+        
+        		// Add markers to the slide titles to indicate the 
+        		// progress through the presentation
+        		markers: false,
+        
+        		// Specify custom panels to be included in the menu, by
+        		// providing an array of objects with 'title', 'icon'
+        		// properties, and either a 'src' or 'content' property.
+        		custom: false,
+        
+        		// Specifies the themes that will be available in the themes
+        		// menu panel. Set to 'false' to hide themes panel.
+        		themes: false,
+        
+        		// Specifies if the transitions menu panel will be shown.
+        		transitions: false,
+        
+        		// Adds a menu button to the slides to open the menu panel.
+        		// Set to 'false' to hide the button.
+        		openButton: true,
+        
+        		// If 'true' allows the slide number in the presentation to
+        		// open the menu panel. The reveal.js slideNumber option must 
+        		// be displayed for this to take effect
+        		openSlideNumber: false,
+        
+        		// If true allows the user to open and navigate the menu using
+        		// the keyboard. Standard keyboard interaction with reveal
+        		// will be disabled while the menu is open.
+        		keyboard: true,
+        
+        		// Normally the menu will close on user actions such as
+        		// selecting a menu item, or clicking the presentation area.
+        		// If 'true', the sticky option will leave the menu open
+        		// until it is explicitly closed, that is, using the close
+        		// button or pressing the ESC or m key (when the keyboard 
+        		// interaction option is enabled).
+        		sticky: false,
+        
+        		// If 'true' standard menu items will be automatically opened
+        		// when navigating using the keyboard. Note: this only takes 
+        		// effect when both the 'keyboard' and 'sticky' options are enabled.
+        		autoOpen: false,
+        				
+        	    custom: [
+			         { title: 'Home', icon: '<i class="fa  fa-arrow-up">', src: 'test-ubahn-reveal.js-menu-custom.html' }
+		        ]
+        	},
 
             // Optional reveal.js plugins
             dependencies: [{
