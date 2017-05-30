@@ -119,69 +119,68 @@
         	menu: {
                 {/literal}{*// Specifies which side of the presentation the menu will 
         		// be shown. Use 'left' or 'right'.*}
-        		side: '{$page.reveal.menu-side}',
+        		side: '{$page.reveal.menuSide}',
         
-        		// Add slide numbers to the titles in the slide list.
-        		// Use 'true' or format string (same as reveal.js slide numbers)
-        		numbers: {$page.reveal.menu-numbers},
+        		{*// Add slide numbers to the titles in the slide list.
+        		// Use 'true' or format string (same as reveal.js slide numbers)*}
+        		numbers: {$page.reveal.menuNumbers},
         
-        		// Specifies which slide elements will be used for generating
+        		{*// Specifies which slide elements will be used for generating
         		// the slide titles in the menu. The default selects the first
         		// heading element found in the slide, but you can specify any
         		// valid css selector and the text from the first matching
         		// element will be used.
         		// Note: that a section data-menu-title attribute or an element
-        		// with a menu-title class will take precedence over this option
-        		titleSelector: {$page.reveal.menu-titleSelector},
+        		// with a menu-title class will take precedence over this option*}
+        		titleSelector: {$page.reveal.menuTitleSelector},
         
-        		// Hide slides from the menu that do not have a title.
-        		// Set to 'true' to only list slides with titles.
-        		hideMissingTitles: true,
+        		{*// Hide slides from the menu that do not have a title.
+        		// Set to 'true' to only list slides with titles.*}
+        		hideMissingTitles: {$page.reveal.menuHideMissingTitles},
         
-        		// Add markers to the slide titles to indicate the 
-        		// progress through the presentation
-        		markers: false,
+        		{*// Add markers to the slide titles to indicate the 
+        		// progress through the presentation*}
+        		markers: {$page.reveal.menuMarkers},
         
-        		// Specify custom panels to be included in the menu, by
-        		// providing an array of objects with 'title', 'icon'
-        		// properties, and either a 'src' or 'content' property.
-        		custom: false,
+        		{*// Specifies the themes that will be available in the themes
+        		// menu panel. Set to 'false' to hide themes panel.*}
+        		themes: {$page.reveal.menuThemes},
         
-        		// Specifies the themes that will be available in the themes
-        		// menu panel. Set to 'false' to hide themes panel.
-        		themes: false,
+        		{*// Specifies if the transitions menu panel will be shown.*}
+        		transitions: {$page.reveal.menuTransitions},
         
-        		// Specifies if the transitions menu panel will be shown.
-        		transitions: false,
+        		{*// Adds a menu button to the slides to open the menu panel.
+        		// Set to 'false' to hide the button.*}
+        		openButton: {$page.reveal.menuOpenButton},
         
-        		// Adds a menu button to the slides to open the menu panel.
-        		// Set to 'false' to hide the button.
-        		openButton: true,
-        
-        		// If 'true' allows the slide number in the presentation to
+        		{*// If 'true' allows the slide number in the presentation to
         		// open the menu panel. The reveal.js slideNumber option must 
-        		// be displayed for this to take effect
-        		openSlideNumber: false,
+        		// be displayed for this to take effect*}
+        		openSlideNumber: {$page.reveal.menuOpenSlideNumber},
         
-        		// If true allows the user to open and navigate the menu using
+        		{*// If true allows the user to open and navigate the menu using
         		// the keyboard. Standard keyboard interaction with reveal
-        		// will be disabled while the menu is open.
-        		keyboard: true,
+        		// will be disabled while the menu is open.*}
+        		keyboard: {$page.reveal.menuKeyboard},
         
-        		// Normally the menu will close on user actions such as
+        		{*// Normally the menu will close on user actions such as
         		// selecting a menu item, or clicking the presentation area.
         		// If 'true', the sticky option will leave the menu open
         		// until it is explicitly closed, that is, using the close
         		// button or pressing the ESC or m key (when the keyboard 
-        		// interaction option is enabled).
-        		sticky: false,
+        		// interaction option is enabled).*}
+        		sticky: {$page.reveal.menuSticky},
         
-        		// If 'true' standard menu items will be automatically opened
+        		{*// If 'true' standard menu items will be automatically opened
         		// when navigating using the keyboard. Note: this only takes 
-        		// effect when both the 'keyboard' and 'sticky' options are enabled.
-        		autoOpen: false,
-{literal}
+        		// effect when both the 'keyboard' and 'sticky' options are enabled.*}
+        		autoOpen: {$page.reveal.menuAutoOpen},
+        		
+        		{*// Specify custom panels to be included in the menu, by
+        		// providing an array of objects with 'title', 'icon'
+        		// properties, and either a 'src' or 'content' property.*}
         	    custom: [
+{literal}
 			         { 
 {/literal}
 			             title: 'Home', 
