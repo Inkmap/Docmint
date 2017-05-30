@@ -3,6 +3,52 @@
 /*************************************
 * Rendering pages
 */
+
+function renderPageHtmlUrl(&$item, $key, $relPathPrefix) {
+    if($key == "url") {
+        if(string_startsWith($item, "#")) {
+            /*
+            * relative path within page
+            */
+        } elseif(string_startsWith($item, "http")) {
+            /*
+            * external link
+            */
+        } elseif(string_startsWith($item, "*")) {
+            /*
+            * link to static file
+            */
+        } elseif(string_startsWith($item, "mailto:")) {
+            /*
+            * mail address
+            */
+        } else {
+            /*
+            * relative link to separate page
+            */
+            $item = $relPathPrefix.$item;
+        }
+    }
+}
+
+function renderPageRelPathPrefix($relurl) {
+    /*
+    * Creates a relative path upwards
+    * based on the url the rendered page will have
+    */
+    $depth = explode("/", $relurl);
+    if(count($depth) > 1) {
+        // page will be nested, create prefix with ../ times depth
+        $v['relPathPrefix'] = "";
+        $counter = count($depth) - 1;
+        while($counter > 0) {
+            $counter--;
+            $v['relPathPrefix'] .= "../";
+        } 
+    }
+    return $v['relPathPrefix'];
+}
+
 function renderPageHtml($json) {
     global $env;
     // convert JSON to array
@@ -21,7 +67,15 @@ function renderPageHtml($json) {
         return FALSE;
     }
     logWrite('{"type":"INFO","function":"'.__FUNCTION__.'","message":"Theme handler found makeHtml_'.$v['meta']['theme'].'.php"}');
-    
+   
+    /*
+    * Figure out if the page is in a subdir and give relative prefix (../) to the template
+    * To make sure the URL in the metadata stays intact, set $keepinmind to change it back.
+    */
+    $keepinmind = $v['meta']['url'];
+    array_walk_recursive($v, 'renderPageHtmlUrl', renderPageRelPathPrefix($v['meta']['url']));
+    $v['meta']['url'] = $keepinmind;
+
     /*
     * Smarty template engine settings for this project
     */
