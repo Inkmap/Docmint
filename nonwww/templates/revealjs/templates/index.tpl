@@ -83,10 +83,10 @@
 <body>
 
     <div class="reveal">
-
+{*$page|print_r*}
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
-{foreach item=slide from=$project.content}
+{foreach item=slide from=$page.content}
             <section {foreach key=key item=item from=$slide.attributes}{$key}="{$item}" {/foreach}>
                 {if isset($slide.children)}{foreach item=child from=$slide.children}<!-- child --><section {foreach key=key item=item from=$child.attributes}{$key}="{$item}" {/foreach}>
                     {$child.content}
@@ -103,10 +103,10 @@
     <script>
     </script>
 
-{literal}
     <script>
-        // Full list of configuration options available at:
-        // https://github.com/hakimel/reveal.js#configuration
+        {*// Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration*}
+{literal}
         Reveal.initialize({
             controls: true,
             progress: true,
@@ -116,50 +116,80 @@
 
             transition: 'slide', // none/fade/slide/convex/concave/zoom
             /*backgroundTransition: 'slide',*/
-
-            menu: {
-                markers: true,
-                openSlideNumber: false,
-                transition: 'slide', // none/fade/slide/convex/concave/zoom
-                themes: [{
-                    name: 'Black',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/black.css'
-                }, {
-                    name: 'White',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/white.css'
-                }, {
-                    name: 'League',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/league.css'
-                }, {
-                    name: 'Sky',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/sky.css'
-                }, {
-                    name: 'Beige',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/beige.css'
-                }, {
-                    name: 'Simple',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/simple.css'
-                }, {
-                    name: 'Serif',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/serif.css'
-                }, {
-                    name: 'Blood',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/blood.css'
-                }, {
-                    name: 'Night',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/night.css'
-                }, {
-                    name: 'Moon',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/moon.css'
-                }, {
-                    name: 'Solarized',
-                    theme: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/theme/solarized.css'
-                }],
-                custom: [{
-                    title: 'Custom',
-                    icon: '<i class="fa fa-bookmark">',
-                    src: 'links.html'
-                }, ]
+        	menu: {
+                {/literal}{*// Specifies which side of the presentation the menu will 
+        		// be shown. Use 'left' or 'right'.*}
+        		side: '{$page.reveal.menu-side}',
+        
+        		// Add slide numbers to the titles in the slide list.
+        		// Use 'true' or format string (same as reveal.js slide numbers)
+        		numbers: {$page.reveal.menu-numbers},
+        
+        		// Specifies which slide elements will be used for generating
+        		// the slide titles in the menu. The default selects the first
+        		// heading element found in the slide, but you can specify any
+        		// valid css selector and the text from the first matching
+        		// element will be used.
+        		// Note: that a section data-menu-title attribute or an element
+        		// with a menu-title class will take precedence over this option
+        		titleSelector: {$page.reveal.menu-titleSelector},
+        
+        		// Hide slides from the menu that do not have a title.
+        		// Set to 'true' to only list slides with titles.
+        		hideMissingTitles: true,
+        
+        		// Add markers to the slide titles to indicate the 
+        		// progress through the presentation
+        		markers: false,
+        
+        		// Specify custom panels to be included in the menu, by
+        		// providing an array of objects with 'title', 'icon'
+        		// properties, and either a 'src' or 'content' property.
+        		custom: false,
+        
+        		// Specifies the themes that will be available in the themes
+        		// menu panel. Set to 'false' to hide themes panel.
+        		themes: false,
+        
+        		// Specifies if the transitions menu panel will be shown.
+        		transitions: false,
+        
+        		// Adds a menu button to the slides to open the menu panel.
+        		// Set to 'false' to hide the button.
+        		openButton: true,
+        
+        		// If 'true' allows the slide number in the presentation to
+        		// open the menu panel. The reveal.js slideNumber option must 
+        		// be displayed for this to take effect
+        		openSlideNumber: false,
+        
+        		// If true allows the user to open and navigate the menu using
+        		// the keyboard. Standard keyboard interaction with reveal
+        		// will be disabled while the menu is open.
+        		keyboard: true,
+        
+        		// Normally the menu will close on user actions such as
+        		// selecting a menu item, or clicking the presentation area.
+        		// If 'true', the sticky option will leave the menu open
+        		// until it is explicitly closed, that is, using the close
+        		// button or pressing the ESC or m key (when the keyboard 
+        		// interaction option is enabled).
+        		sticky: false,
+        
+        		// If 'true' standard menu items will be automatically opened
+        		// when navigating using the keyboard. Note: this only takes 
+        		// effect when both the 'keyboard' and 'sticky' options are enabled.
+        		autoOpen: false,
+{literal}
+        	    custom: [
+			         { 
+{/literal}
+			             title: 'Home', 
+			             icon: '<i class="fa  fa-arrow-up">', 
+			             src: 'test-ubahn-reveal.js-menu-custom.html' 
+{literal}
+			         }
+		        ]
             },
 
             // Optional reveal.js plugins
