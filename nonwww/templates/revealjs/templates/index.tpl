@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Connect the dots</title>
+    <title>{$page.meta.title}</title>
 
     <meta name="description" content="A slideout menu for reveal.sj, a framework for easily creating beautiful presentations using HTML">
     <meta name="author" content="Micz Flor" >
@@ -15,20 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
     <link rel="stylesheet" href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/css/reveal.css">
-    <link rel="stylesheet" href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/css/theme/{$project.meta.revealtheme}.css" id="theme">
+    <link rel="stylesheet" href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/css/theme/{$page.meta.skin}.css" id="theme">
 
-    <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/lib/css/zenburn.css">
-{literal}
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/print/pdf.css' : '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
-{/literal}
     <!--[if lt IE 9]>
 		<script src="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -185,7 +173,7 @@
 {/literal}
 			             title: 'Home', 
 			             icon: '<i class="fa  fa-arrow-up">', 
-			             src: 'test-ubahn-reveal.js-menu-custom.html' 
+			             content: '<img src="http://pong-berlin.de/sites/default/files/images/general/banner/tiefenschaerfe_banner-5.jpg"><br/><h4>Hello</h4>' 
 {literal}
 			         }
 		        ]
@@ -208,18 +196,9 @@
                     return !!document.querySelector('[data-markdown]');
                 }
             }, {
-                src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/plugin/highlight/highlight.js',
-                async: true,
-                callback: function() {
-                    hljs.initHighlightingOnLoad();
-                }
-            }, {
                 src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/plugin/background-youtube-video/background-youtube-video.js'
             }, {
                 src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/plugin/zoom-js/zoom.js',
-                async: true
-            }, {
-                src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/plugin/notes/notes.js',
                 async: true
             }, {
                 src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/plugin/menu/menu.js',
