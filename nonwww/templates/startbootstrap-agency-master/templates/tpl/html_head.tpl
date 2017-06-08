@@ -6,7 +6,7 @@
     <meta name="author" content="Micz Flor" >
 
     <title>{$page.meta.titletag}</title>
-
+{*$page|print_r*}
     <!-- Bootstrap Core CSS -->
     <link href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/{$page.meta.theme}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -18,7 +18,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
-    <link href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/{$page.meta.theme}/css/agency.min.css" rel="stylesheet">
+    <link href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/{$page.meta.theme}/css/agency.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

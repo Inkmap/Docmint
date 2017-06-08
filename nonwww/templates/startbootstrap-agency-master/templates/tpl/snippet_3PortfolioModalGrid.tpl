@@ -12,13 +12,20 @@
 {assign var="itemcounter" value=1}            
 {foreach $e.content.items as $item}        
                 <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal{$itemcounter}" class="portfolio-link" data-toggle="modal">
+                    <a href="#portfolioModal{$itemcounter}" class="portfolio-link" data-toggle="modal" style="
+                        background: url({$item.imgurl}) no-repeat center center; 
+                        -webkit-background-size: cover;
+                        -moz-background-size: cover;
+                        -o-background-size: cover;
+                        background-size: cover;
+                        height: 280px;
+                    ">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="{$item.imgurl}" class="img-responsive" alt="{if isset($item.imgtext)}{$item.imgtext}{/if}">
+                        {*<img src="{$item.imgurl}" class="img-responsive" alt="{if isset($item.imgtext)}{$item.imgtext}{/if}">*}
                     </a>
                     <div class="portfolio-caption">
                         <h4>{$item.title}</h4>

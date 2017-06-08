@@ -5,7 +5,7 @@
 */
 
 function renderPageHtmlUrl(&$item, $key, $relPathPrefix) {
-    if($key == "url") {
+    if($key == "url" || $key == "imgurl" || $key == "bgimgurl") {
         if(string_startsWith($item, "#")) {
             /*
             * relative path within page
@@ -17,7 +17,9 @@ function renderPageHtmlUrl(&$item, $key, $relPathPrefix) {
         } elseif(string_startsWith($item, "*")) {
             /*
             * link to static file
+            * also need relative link prefix
             */
+            $item = $relPathPrefix."static/".ltrim($item, '*');
         } elseif(string_startsWith($item, "mailto:")) {
             /*
             * mail address
@@ -91,10 +93,39 @@ function renderPageHtml($json) {
     * Now include the handler for this theme to compile the HTML
     */
     $page = $v;
+    $page['relPathPrefix'] = renderPageRelPathPrefix($v['meta']['url']);
     include($themehandlerpath);
     return $html;
 }
 
+/*************************************
+*
+*/
+function getUserProject($json) {
+    global $env;
+    global $tempsession;
+    // convert JSON to array
+    $v = json_decode($json, true);
+    // minimum check: user sent?
+    if(!isset($v['user'])) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user not set"}');
+        return FALSE;
+    }
+    // minimum check: user exists?
+    if(!file_exists($env['data_dir_path_abs']."/users/".$v['user'])) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user does not exist"}');
+        return FALSE;
+    }
+    // minimum check: user not empty?
+    if(trim($v['user']) == "") {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user string empty"}');
+        return FALSE;
+    }
+    return $tempsession['project'];
+}
 /*************************************
 * Authentication
 */

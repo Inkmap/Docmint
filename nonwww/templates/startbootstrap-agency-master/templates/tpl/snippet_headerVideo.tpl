@@ -1,5 +1,5 @@
 <!-- tpl/{$smarty.template} -->
-<header>
+<header {if isset($e.meta.id)}id="{$e.meta.id}"{/if} {include 'tpl/snippet_styleSection.tpl'}>
         <div class="container">
             <div class="row">  
                 <div class="col-md-6 col-md-12">
