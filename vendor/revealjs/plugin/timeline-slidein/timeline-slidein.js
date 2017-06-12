@@ -11,7 +11,6 @@ if (slideInModals.length > 0) {
         modal.appendChild(slideInModalClose);
 
         slideInModalClose.addEventListener('click', function(ev) {
-            console.log('click');
             modal.className = "slidein-modal";
             clearTimeout(modalDelayTimeout);
             clearTimeout(modalDurationTimeout);
@@ -37,12 +36,10 @@ Reveal.addEventListener('slidechanged', function(event) {
 
     if (modalId) {
         modalDelayTimeout = setTimeout(function() {
-            console.log('show');
             document.querySelector('#' + modalId).className = "slidein-modal slidein-modal--active";
         }, modalDelay);
 
         modalDurationTimeout = setTimeout(function() {
-            console.log('hide');
             document.querySelector('#' + modalId).className = "slidein-modal";
         }, modalDuration);
     }
