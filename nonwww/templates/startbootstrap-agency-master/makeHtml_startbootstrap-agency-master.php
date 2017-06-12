@@ -46,6 +46,12 @@ foreach($page['elements'] as $element) {
         case "headerVideo":
             $html .= $smarty->fetch('tpl/snippet_headerVideo.tpl');
             break;
+        case "textBig":
+            $html .= $smarty->fetch('tpl/snippet_textBig.tpl');
+            break;
+        case "textBig2Col":
+            $html .= $smarty->fetch('tpl/snippet_textBig2Col.tpl');
+            break;
         case "3ItemsWithIcons":
             $html .= $smarty->fetch('tpl/snippet_3ItemsWithIcons.tpl');
             break;

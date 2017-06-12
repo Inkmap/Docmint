@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">{$e.content.title}</h2>
-                    <h3 class="section-subheading text-muted">{$e.content.subtitle}</h3>
+                    <h3 class="section-subheading text-muted">{$e.content.subTitle}</h3>
                 </div>
             </div>
             <div class="row">
@@ -16,8 +16,8 @@
 {foreach $e.content.items as $item}      
                         <li {if $itemalign % 2 == 0}class="timeline-inverted"{/if}>
                             <div class="timeline-image">
-                                {if isset($item.imgurl)}
-                                    <img class="img-circle img-responsive" src="{$item.imgurl}" alt="{if isset($item.imgtext)}{$item.imgtext}{/if}">
+                                {if isset($item.imgUrl)}
+                                    <img class="img-circle img-responsive" src="{$item.imgUrl}" alt="{if isset($item.imgText)}{$item.imgText}{/if}">
                                 {else}
                                     {if isset($item.imgtext)}<h4>{$item.imgtext}</h4>{/if}
                                 {/if}
@@ -40,7 +40,7 @@
                     </ul>
                 </div>
             </div>
-            {if isset($e.content.text)}<div class="row">
+            {if isset($e.content.text)}<br clear="all" /><div class="row" style="display: block;">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <p class="large text-muted">{$e.content.text}</p>
                 </div>

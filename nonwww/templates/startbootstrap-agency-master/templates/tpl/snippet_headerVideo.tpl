@@ -8,7 +8,7 @@
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="{$e.content.videourl}"></iframe>
 </div>
-                <div class="intro-lead-in">{$e.content.subtitle}</div>
+                <div class="intro-lead-in">{$e.content.subTitle}</div>
                 <div class="intro-heading">{$e.content.title}</div>
 {if isset($e.buttons)}{include 'tpl/snippet_buttonsCentered.tpl'}{/if}  
 </div>

@@ -1,6 +1,6 @@
  style=" {if isset($e.meta.color)}color: {$e.meta.color};{/if}
- {if isset($e.meta.bgcolor)}background-color: {$e.meta.bgcolor};{/if}
- {if isset($e.meta.bgimgurl)}background: url({$e.meta.bgimgurl}) no-repeat center center fixed; 
+ {if isset($e.meta.bgColor)}background-color: {$e.meta.bgColor};{/if}
+ {if isset($e.meta.bgImgUrl)}background: url({$e.meta.bgImgUrl}) no-repeat center center; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

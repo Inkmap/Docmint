@@ -18,6 +18,7 @@ if(!isset($rest[2])) {
     if(!file_exists($pagepath)) {
         logWrite('{"type":"ERROR","file":"'.__FILE__.'","message":"rest[2] project \''.$rest[2].'\' not found","rest":"'.$ses['rest'].'"}');
     } else {
+        $ses['project'] = $rest[2];
         /*
         * List all pages within project and create HTML one by one 
         */
@@ -120,6 +121,15 @@ if(!isset($rest[2])) {
             $pagesvendors[$pageconfig['meta']['theme']] = TRUE;
         }
         
+        /******************************************************
+        * VENDOR libraries
+        */
+
+        /*
+        * add libraries used besides theme
+        */
+        $pagesvendors['animate.css-master'] = TRUE;
+        
         /*
         * copy assets from vendor folder to htdocs folder
         */
@@ -146,7 +156,7 @@ if(!isset($rest[2])) {
         /*
         * Our work here is done
         */
-        $return = '{"type":"SUCCESS","file":"'.__FILE__.'","message":"Project pages passed on to page rendering","rest":"'.$ses['rest'].'"}'; 
+        $return = '{"type":"SUCCESS","file":"'.__FILE__.'","message":"Project pages passed on to page rendering","session":'.json_encode($ses).'}'; 
         logWrite($return);
         die($return);
     }

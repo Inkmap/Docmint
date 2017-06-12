@@ -65,6 +65,17 @@ switch ($rest[0]) {
         logWrite('{"type":"INFO","file":"'.__FILE__.'","message":"rest[0] == list","rest":"'.$ses['rest'].'"}');
         
         switch ($rest[1]) {
+            case "projects":
+                /************************************************
+                * /LIST/PROJECTS
+                *
+                * requires
+                * * $ses['user']
+                * 
+                * listing available projects
+                */
+                include($env['libs_dir_path_abs'].'/curl/curl__list__projects.php');
+                break;
             case "pages":
                 /************************************************
                 * /LIST/PAGES

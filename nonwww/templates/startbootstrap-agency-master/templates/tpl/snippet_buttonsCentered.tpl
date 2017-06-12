@@ -1,6 +1,6 @@
 <!-- tpl/{$smarty.template} -->
         <br clear="all"/>      
-        <div class="container">
+        <div class="container {include 'tpl/snippet_customAnimateClass.tpl' customField='buttons'}" style=" {include 'tpl/snippet_customAnimateStyle.tpl' customField='buttons'}">
             <div class="row">
                 <div class="col-lg-12 text-center">
                 {foreach $e.buttons as $button}

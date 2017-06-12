@@ -1,13 +1,13 @@
 <!-- tpl/{$smarty.template} -->
-    <footer {include 'tpl/snippet_styleSection.tpl'}>
+    <footer {if isset($e.meta.id)}id="{$e.meta.id}"{/if} {include 'tpl/snippet_styleSection.tpl'}>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <span class="copyright">{$e.content.text}</span>
                 </div>
                 <div class="col-md-4">
-                        {if isset($e.content.socialicons)}<ul class="list-inline social-buttons">
-    {foreach $e.content.socialicons as $icon => $url}
+                        {if isset($e.content.socialIcons)}<ul class="list-inline social-buttons">
+    {foreach $e.content.socialIcons as $icon => $url}
                             <li>
                                 <a href="{$url}"><i class="fa fa-{$icon}"></i></a>
                             </li>

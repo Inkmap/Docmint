@@ -30,7 +30,7 @@ if(!file_exists($pagespath)) {
             */
             $pageconfig = spyc_load_file($pagepath);
             if(!isset($pageconfig['meta']['title']) || trim($pageconfig['meta']['title']) == "") {
-                $pagespaths[$pagepath] = $pagepath;
+                $pagespaths[$pagepath] = $file_parts['basename'];
             } else {
                 $pagespaths[$pagepath] = $pageconfig['meta']['title'];
             }

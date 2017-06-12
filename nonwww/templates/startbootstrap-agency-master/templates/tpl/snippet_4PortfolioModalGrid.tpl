@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">{$e.content.title}</h2>
-                    <h3 class="section-subheading text-muted">{$e.content.subtitle}</h3>
+                    <h3 class="section-subheading text-muted">{$e.content.subTitle}</h3>
                 </div>
             </div>
             <div class="row">
@@ -18,11 +18,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="{$item.imgurl}" class="img-responsive" alt="{if isset($item.imgtext)}{$item.imgtext}{/if}">
+                        <img src="{$item.imgUrl}" class="img-responsive" alt="{if isset($item.imgtext)}{$item.imgtext}{/if}">
                     </a>
                     <div class="portfolio-caption">
                         <h4>{$item.title}</h4>
-                        <p class="text-muted">{$item.subtitle}</p>
+                        <p class="text-muted">{$item.subTitle}</p>
                     </div>
                 </div>
 {assign var="itemcounter" value=$itemcounter+1}
@@ -56,7 +56,7 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2>{$item.title}</h2>
-                                <p class="item-intro text-muted">{$item.subtitle}</p>
+                                <p class="item-intro text-muted">{$item.subTitle}</p>
                                 {if isset($item.text)}{$item.text}{/if}
                                 <br clear="all"/>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>

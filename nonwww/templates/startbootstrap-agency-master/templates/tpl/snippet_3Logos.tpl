@@ -6,7 +6,7 @@
 {foreach $e.content.items as $item}  
                 <div class="col-md-4 col-sm-6">
                     <a href="#">
-                        <img src="{$item.imgurl}" class="img-responsive img-centered" alt="">
+                        <img src="{$item.imgUrl}" class="img-responsive img-centered" alt="">
                     </a>
                 </div>
 {/foreach}

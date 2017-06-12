@@ -5,7 +5,7 @@
 */
 
 function renderPageHtmlUrl(&$item, $key, $relPathPrefix) {
-    if($key == "url" || $key == "imgurl" || $key == "bgimgurl") {
+    if($key == "url" || $key == "imgUrl" || $key == "bgImgUrl" || $key == "socialImgUrl") {
         if(string_startsWith($item, "#")) {
             /*
             * relative path within page
@@ -126,6 +126,54 @@ function getUserProject($json) {
     }
     return $tempsession['project'];
 }
+
+/*************************************
+* Access rights
+*/
+function checkUserAccessProject($json) {
+    global $env;
+    // convert JSON to array
+    $v = json_decode($json, true);
+    // minimum check: user sent?
+    if(!isset($v['user'])) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user not set"}');
+        return FALSE;
+    }
+    // minimum check: user exists?
+    if(!file_exists($env['data_dir_path_abs']."/users/".$v['user'])) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user does not exist"}');
+        return FALSE;
+    }
+    // minimum check: user not empty?
+    if(trim($v['user']) == "") {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user string empty"}');
+        return FALSE;
+    }
+    // minimum check: project path sent?
+    if(!isset($v['projectpath'])) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"project path not set"}');
+        return FALSE;
+    }
+    // minimum check: project path exists?
+    if(!file_exists($v['projectpath'])) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"project path does not exist"}');
+        return FALSE;
+    }
+    // minimum check: project path not empty?
+    if(trim($v['projectpath']) == "") {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"project path string empty"}');
+        return FALSE;
+    }
+    return "not-implemented-yet";
+}
+
+
 /*************************************
 * Authentication
 */
