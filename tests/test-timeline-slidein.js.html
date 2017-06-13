@@ -7,7 +7,7 @@
     <title>Connect the dots</title>
 
     <meta name="description" content="A slideout menu for reveal.sj, a framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Micz Flor" >
+    <meta name="author" content="Micz Flor">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -49,7 +49,6 @@
         /* styles for slidein modal */
         
         .reveal .slidein-modal {
-            width: 100%;
             height: 350px;
             transform: translateY(350px);
             transition: transform 400ms;
@@ -82,6 +81,7 @@
         .reveal .slidein-modal--active {
             transform: translateY(0);
             opacity: 1;
+            z-index: 10;
         }
         
         .slidein-modal-close {
@@ -107,21 +107,23 @@
             </section>
             <section data-timeline-slidein="mymodal2" data-background-transition="fade">
                 <h3>Slidein without delay or duration set</h3>
-                <div class="slidein-modal" id="mymodal2">
-                    <h2>My Modal</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem animi sit veniam nostrum, atque provident pariatur praesentium nesciunt enim molestias quaerat consequuntur mollitia eum eligendi cum doloribus maiores eius minus.</p>
-                </div>
             </section>
-            <section data-timeline-slidein="mymodal" data-timeline-slidein-delay="1000" data-timeline-slidein-duration="10000" data-background-transition="fade">
-                <h3>Slidein with delay 1000 and duration 10000</h3>
-                <div class="slidein-modal" id="mymodal">
-                    <h2>My Modal</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem animi sit veniam nostrum, atque provident pariatur praesentium nesciunt enim molestias quaerat consequuntur mollitia eum eligendi cum doloribus maiores eius minus.</p>
-                </div>
+            <section data-timeline-slidein="mymodal" data-timeline-slidein-delay="2000" data-timeline-slidein-duration="5000" data-background-transition="fade">
+                <h3>Slidein with delay 2000 and duration 5000</h3>
             </section>
             <section data-background="../assets/demo-ubahn-reveal.js-menu/Start08AllLines.png" data-background-transition="fade">
                 <h1>FIN</h1>
             </section>
+        </div>
+
+        <div class="slidein-modal" id="mymodal2">
+            <h2>My Modal 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem animi sit veniam nostrum, atque provident pariatur praesentium nesciunt enim molestias quaerat consequuntur mollitia eum eligendi cum doloribus maiores eius minus.</p>
+        </div>
+
+        <div class="slidein-modal" id="mymodal">
+            <h2>My Modal 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem animi sit veniam nostrum, atque provident pariatur praesentium nesciunt enim molestias quaerat consequuntur mollitia eum eligendi cum doloribus maiores eius minus.</p>
         </div>
 
     </div>
