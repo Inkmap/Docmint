@@ -129,6 +129,8 @@ if(!isset($rest[2])) {
         * add libraries used besides theme
         */
         $pagesvendors['animate.css-master'] = TRUE;
+        $pagesvendors['jquery.inview.js'] = TRUE;
+        $pagesvendors['jquery.waypoints.js'] = TRUE;
         
         /*
         * copy assets from vendor folder to htdocs folder

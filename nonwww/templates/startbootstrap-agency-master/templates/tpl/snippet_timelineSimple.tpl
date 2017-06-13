@@ -4,8 +4,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">{$e.content.title}</h2>
-                    <h3 class="section-subheading text-muted">{$e.content.subTitle}</h3>
+                    <h2 class="section-heading {include 'tpl/snippet_customAnimateClass.tpl' customField='title'}">{$e.content.title}</h2>
+                    <h3 class="section-subheading text-muted {include 'tpl/snippet_customAnimateClass.tpl' customField='subTitle'}">{$e.content.subTitle}</h3>
                 </div>
             </div>
             <div class="row">
