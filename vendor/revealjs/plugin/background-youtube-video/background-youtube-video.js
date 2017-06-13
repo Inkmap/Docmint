@@ -213,34 +213,22 @@ var startBackgroundYoutubeVideo = function(currentSlide) {
 }
 
 Reveal.addEventListener('overviewshown', function(event) {
-    var currentElement = document.querySelector('.slide-background.present');
     var backgroundOverviewVideos = document.querySelectorAll('.backgrounds iframe');
-    var backgroundOverviewVideo = false;
-
-    var currentElementStyle = window.getComputedStyle(currentElement, null);
-
-    var currentElementStyleTransform = currentElementStyle.getPropertyValue("-webkit-transform") ||
-        currentElementStyle.getPropertyValue("-moz-transform") ||
-        currentElementStyle.getPropertyValue("-ms-transform") ||
-        currentElementStyle.getPropertyValue("-o-transform") ||
-        currentElementStyle.getPropertyValue("transform") ||
-        "";
 
     [].forEach.call(backgroundOverviewVideos, function(div, index) {
 
-        if (div.style.display === 'block') {
-            div.style.transform = currentElementStyleTransform;
-        }
+        div.style.opacity = 0;
     });
 
-    backgroundOverviewVideo
 });
+
 
 Reveal.addEventListener('overviewhidden', function(event) {
     var backgroundOverviewVideos = document.querySelectorAll('.backgrounds iframe');
 
     [].forEach.call(backgroundOverviewVideos, function(div, index) {
 
+        div.style.opacity = 1;
         div.style.transform = 'none';
     });
 });
