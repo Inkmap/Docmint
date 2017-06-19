@@ -14,8 +14,8 @@ if(!isset($rest[2])) {
     */
     logWrite('{"type":"ERROR","file":"'.__FILE__.'","message":"project not set for page rendering","rest":"'.$ses['rest'].'"}');
 } else {
-    $pagepath = $env['data_dir_path_abs']."/projects/".$rest[2];
-    if(!file_exists($pagepath)) {
+    $projectpath = $env['data_dir_path_abs']."/projects/".$rest[2];
+    if(!file_exists($projectpath)) {
         logWrite('{"type":"ERROR","file":"'.__FILE__.'","message":"rest[2] project \''.$rest[2].'\' not found","rest":"'.$ses['rest'].'"}');
     } else {
         $ses['project'] = $rest[2];
