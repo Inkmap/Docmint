@@ -21,14 +21,13 @@
 		<script src="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/lib/js/html5shiv.js"></script>
 		<![endif]-->
 
-    <style>
+    <style type="text/css">
         .reveal .slide-number {
             font-size: 0.6em;
         }
-    </style>
-    <style type="text/css">
+    
         /* styles for background youtube video */
-        
+            
         .reveal .background-youtube-video {
             background-color: red;
             position: absolute;
@@ -65,6 +64,40 @@
             font-family: Arial, Helvetica, sans-serif;
             fill: #fff;
         }
+        
+        /* styles for slidein modal */
+        
+        .reveal .slidein-modal {
+            height: 350px;
+            transform: translateY(350px);
+            transition: transform 400ms;
+            opacity: 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: -10px;
+            background: #fff;
+            top: auto;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .reveal .slidein-modal--active {
+            transform: translateY(0);
+            opacity: 1;
+            z-index: 10;
+        }
+        
+        .slidein-modal-close {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 40px;
+        }
+        
     </style>
 </head>
 
@@ -78,25 +111,47 @@
 {if $slide.body|is_array}
             <section>
 {foreach item=child from=$slide.body}
-                <!-- child --><section {foreach key=key item=item from=$child.attributes}{$key}="{$item}" {/foreach}>
+                <!-- child -->
+                <section {foreach key=key item=item from=$child.attributes}{$key}="{$item}" {/foreach}>
                     {$child.body}
-                </section><!-- / child -->
+                </section>
+                <!-- / child -->
 {/foreach}
             </section>
 {else}
             <section {foreach key=key item=item from=$slide.attributes}{$key}="{$item}" {/foreach}>
-                {if isset($slide.children)}{foreach item=child from=$slide.children}<!-- child --><section {foreach key=key item=item from=$child.attributes}{$key}="{$item}" {/foreach}>
-                    {$child.content}
-                </section><!-- / child -->
-                {/foreach}
-                {else}{$slide.body}{/if}
-                
+                {$slide.body}
             </section>
 {/if}            
 {/foreach}
         </div>
+{* now check if we have to create any modal HTML *}
+
+{* workaround to use hyphens in key for smarty *}
+{assign var="dataTimelineSlidein" value="data-timeline-slidein"}
+{*$child.attributes.$dataTimelineSlidein*}
+
+{foreach item=slide from=$page.content}
+    {if $slide.body|is_array}
+        {foreach item=child from=$slide.body}
+            {if isset($child.modalBody)}
+            
+        <div class="slidein-modal" id="{$child.attributes.$dataTimelineSlidein}">
+            {$child.modalBody}
+        </div>
+            {/if}
+        {/foreach}
+    {else}
+        {if isset($slide.modalBody)}
+        <div class="slidein-modal" id="{$slide.attributes.$dataTimelineSlidein}">
+        {$slide.modalBody}
+        </div>
+        {/if}
+    {/if}            
+{/foreach}
 
     </div>
+    
     <script src="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/lib/js/head.min.js"></script>
     <script src="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/js/reveal.js"></script>
     <script>
@@ -215,6 +270,8 @@
                 }
             }, {
                 src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/plugin/background-youtube-video/background-youtube-video.js'
+            }, {
+                src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/plugin/timeline-slidein/timeline-slidein.js'
             }, {
                 src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/plugin/zoom-js/zoom.js',
                 async: true

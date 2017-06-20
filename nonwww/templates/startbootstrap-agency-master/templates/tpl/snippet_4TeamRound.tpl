@@ -12,7 +12,7 @@
 {foreach $e.content.items as $item}  
                 <div class="col-sm-3">
                     <div class="team-member">
-                        <img src="{$item.imgUrl}" class="img-responsive img-circle" alt="{if isset($item.imgtext)}{$item.imgtext}{/if}">
+                        <img src="{$item.imgUrl}" class="img-responsive img-circle" alt="{if isset($item.imgText)}{$item.imgText}{/if}">
                         <h4>{$item.title}</h4>
                         <p class="text-muted">{$item.subTitle}</p>
                         {if isset($item.socialIcons)}<ul class="list-inline social-buttons">

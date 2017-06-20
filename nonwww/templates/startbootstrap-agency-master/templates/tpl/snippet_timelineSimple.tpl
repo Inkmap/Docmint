@@ -19,7 +19,7 @@
                                 {if isset($item.imgUrl)}
                                     <img class="img-circle img-responsive" src="{$item.imgUrl}" alt="{if isset($item.imgText)}{$item.imgText}{/if}">
                                 {else}
-                                    {if isset($item.imgtext)}<h4>{$item.imgtext}</h4>{/if}
+                                    {if isset($item.imgText)}<h4>{$item.imgText}</h4>{/if}
                                 {/if}
                             </div>
                             {if isset($item.date) || isset($item.title) || isset($item.text)}

@@ -9,8 +9,8 @@ $smarty->assign('page',$page);
 $navlinks = array();
 foreach($page['elements'] as $element) {
     if(isset($element['meta']['id'])) {
-        if(isset($element['meta']['textnav'])) {
-            $navlinks[$element['meta']['id']] = $element['meta']['textnav'];
+        if(isset($element['meta']['textNav'])) {
+            $navlinks[$element['meta']['id']] = $element['meta']['textNav'];
         } else {
             $navlinks[$element['meta']['id']] = $element['meta']['id'];
         }

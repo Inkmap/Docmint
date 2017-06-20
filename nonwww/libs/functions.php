@@ -5,7 +5,7 @@
 */
 
 function renderPageHtmlUrl(&$item, $key, $relPathPrefix) {
-    if($key == "url" || $key == "imgUrl" || $key == "bgImgUrl" || $key == "socialImgUrl") {
+    if($key == "url" || $key == "imgUrl" || $key == "bgImgUrl" || $key == "socialImgUrl" || $key == "data-background") {
         if(string_startsWith($item, "#")) {
             /*
             * relative path within page

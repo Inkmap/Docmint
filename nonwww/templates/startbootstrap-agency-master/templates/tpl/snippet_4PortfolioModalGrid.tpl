@@ -18,7 +18,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="{$item.imgUrl}" class="img-responsive" alt="{if isset($item.imgtext)}{$item.imgtext}{/if}">
+                        <img src="{$item.imgUrl}" class="img-responsive" alt="{if isset($item.imgText)}{$item.imgText}{/if}">
                     </a>
                     <div class="portfolio-caption">
                         <h4>{$item.title}</h4>
