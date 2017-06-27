@@ -62,7 +62,8 @@ function renderPageHtml($json) {
         return FALSE;
     }
     // minimum check: theme file for handling page exists?
-    $themehandlerpath = $env['nonwww_dir_path_abs'].'/templates/'.$v['meta']['theme'].'/makeHtml_'.$v['meta']['theme'].'.php';
+    //$themehandlerpath = $env['nonwww_dir_path_abs'].'/templates/'.$v['meta']['theme'].'/makeHtml_'.$v['meta']['theme'].'.php';//???
+    $themehandlerpath = $env['nonwww_dir_path_abs'].'/includes/makeHtml_'.$v['meta']['theme'].'.php';
     if(!file_exists($themehandlerpath)) {
         // write to log file
         logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"Theme handler not found makeHtml_'.$v['meta']['theme'].'.php"}');
@@ -83,10 +84,16 @@ function renderPageHtml($json) {
     */
     require_once($env['smarty_class_path_abs']);
     $smarty = new Smarty();
+    /* these are the old folders, new ones are all inside /templates/default/...
     $smarty->setTemplateDir($env['nonwww_dir_path_abs'].'/templates/'.$v['meta']['theme'].'/templates');
     $smarty->setCompileDir($env['nonwww_dir_path_abs'].'/templates/'.$v['meta']['theme'].'/templates_c');
     $smarty->setCacheDir($env['nonwww_dir_path_abs'].'/templates/'.$v['meta']['theme'].'/cache');
     $smarty->setConfigDir($env['nonwww_dir_path_abs'].'/templates/'.$v['meta']['theme'].'/configs');
+    /**/
+    $smarty->setTemplateDir($env['nonwww_dir_path_abs'].'/templates/default/templates');
+    $smarty->setCompileDir($env['nonwww_dir_path_abs'].'/templates/default/templates_c');
+    $smarty->setCacheDir($env['nonwww_dir_path_abs'].'/templates/default/cache');
+    $smarty->setConfigDir($env['nonwww_dir_path_abs'].'/templates/default/configs');
     //$smarty->testInstall();
     
     /*
