@@ -108,7 +108,7 @@ function renderPageHtml($json) {
 /*************************************
 *
 */
-function getUserProject($json) {
+function getUserProjects($json) {
     global $env;
     global $tempsession;
     // convert JSON to array
@@ -206,17 +206,220 @@ function getUserToken($json) {
         logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user string empty"}');
         return FALSE;
     }
-    return "not-implemented-yet";
+    // user config exists?
+    $userdatapath = $env['data_dir_path_abs']."/users/".$v['user']."/userdata.yaml";
+    if(!file_exists($userdatapath)) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user config file does not exist"}');
+        return FALSE;
+    }
+    // read user data
+    // $userdata = spyc_load_file($userdatapath);
+/**
+    logWrite(
+        json_encode(
+            array(
+                "type" => "DEBUG",
+                "message" => "getting user token, reading user data",
+                "file" => __FILE__,
+                "fileLine" => __LINE__,
+                "userdata" => $userdata,
+            )
+        )
+    );
+/**/   
+    /*
+    * for the time being, get a unique file name
+    */
+    $tokenpath = tempnam($env['token_dir_path_abs'], "T");
+    $token = basename($tokenpath);
+    
+    /*
+    * write token to disk
+    */
+    $tokenjson = json_encode($v);
+    if(file_put_contents($tokenpath, $tokenjson, FILE_APPEND | LOCK_EX)) {
+        /*
+        * return token
+        */
+        return $token;
+    } else {
+        logWrite(
+            json_encode(
+                array(
+                    "type" => "ERROR",
+                    "message" => "could not write token to disk",
+                    "file" => __FILE__,
+                    "fileLine" => __LINE__,
+                    "userdata" => $userdata,
+                )
+            )
+        );
+        /*
+        * token not created, return FALSE
+        */
+        return FALSE;
+    }
 }
-function checkUserToken($json) {
+function checkValidToken($json) {
+    global $env;
+    // convert JSON to array
+    $v = json_decode($json, true);
+    logWrite(
+        json_encode(
+            array(
+                "type" => "DEBUG",
+                "message" => "checking user token",
+                "file" => __FILE__,
+                "fileLine" => __LINE__,
+                "userdata" => $v,
+            )
+        )
+    );
+    // minimum check: token sent?
+    if(!isset($v['token'])) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user or token not set"}');
+        return FALSE;
+    } 
+    // minimum check: token not empty?
+    if(trim($v['token']) == "") {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"token string empty"}');
+        return FALSE;
+    }
+    // token exists?
+    $tokenpath = $env['token_dir_path_abs']."/".$v['token'];
+    if(file_exists($tokenpath)) {
+        /*
+        * We found the token,
+        */
+        /* 
+        * read content and check if user exists
+        */
+        $tokenarray = json_decode(file_get_contents($tokenpath), true);
+        
+        // minimum check: user in token?
+        if(!isset($tokenarray['user'])) {
+            // write to log file
+            logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user or token not set"}');
+            return FALSE;
+        } 
+        // minimum check: user exists?
+        if(!file_exists($env['data_dir_path_abs']."/users/".$tokenarray['user'])) {
+            // write to log file
+            logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user does not exist"}');
+            return FALSE;
+        }
+        // minimum check: user not empty?
+        if(trim($tokenarray['user']) == "") {
+            // write to log file
+            logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user string empty"}');
+            return FALSE;
+        }
+
+        /*
+        * for the time being: delete token and return new one
+        */
+        unlink($tokenpath);
+        $tokennew = getUserToken('{"user":"'.$tokenarray['user'].'"}');
+        return $tokennew;
+    } else {
+        /*
+        * token not found 
+        */
+        return FALSE;
+    }
+}
+
+function getUserFromToken($json) {
+    global $env;
+    // convert JSON to array
+    $v = json_decode($json, true);
+    logWrite(
+        json_encode(
+            array(
+                "type" => "DEBUG",
+                "message" => "getting user ID from token",
+                "file" => __FILE__,
+                "fileLine" => __LINE__,
+                "userdata" => $v,
+            )
+        )
+    );
+    // minimum check: token sent?
+    if(!isset($v['token'])) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user or token not set"}');
+        return FALSE;
+    } 
+    // minimum check: token not empty?
+    if(trim($v['token']) == "") {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"token string empty"}');
+        return FALSE;
+    }
+    // token exists?
+    $tokenpath = $env['token_dir_path_abs']."/".$v['token'];
+    if(file_exists($tokenpath)) {
+        /*
+        * We found the token,
+        */
+        /* 
+        * read content and check if user exists
+        */
+        $tokenarray = json_decode(file_get_contents($tokenpath), true);
+        
+        // minimum check: user in token?
+        if(!isset($tokenarray['user'])) {
+            // write to log file
+            logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user or token not set"}');
+            return FALSE;
+        } 
+        // minimum check: user exists?
+        if(!file_exists($env['data_dir_path_abs']."/users/".$tokenarray['user'])) {
+            // write to log file
+            logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user does not exist"}');
+            return FALSE;
+        }
+        // minimum check: user not empty?
+        if(trim($tokenarray['user']) == "") {
+            // write to log file
+            logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user string empty"}');
+            return FALSE;
+        }
+
+        return $tokenarray['user'];
+    } else {
+        /*
+        * token not found 
+        */
+        return FALSE;
+    }
+}
+
+function checkUserPassword($json) {
     global $env;
     /* not-implemented-yet */
     // convert JSON to array
     $v = json_decode($json, true);
+/*
+    logWrite(
+        json_encode(
+            array(
+                "type" => "DEBUG",
+                "message" => "Checking user and password",
+                "file" => __FILE__,
+                "fileLine" => __LINE__,
+                "session" => $v,
+            )
+        )
+    );
+/**/
     // minimum check: user and token sent?
-    if(!isset($v['user']) || !isset($v['token'])) {
+    if(!isset($v['user']) || !isset($v['pass'])) {
         // write to log file
-        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user or token not set"}');
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user or password not set"}');
         return FALSE;
     } 
     // minimum check: user exists?
@@ -232,14 +435,34 @@ function checkUserToken($json) {
         return FALSE;
     }
     // minimum check: token not empty?
-    if(trim($v['token']) == "") {
+    if(trim($v['pass']) == "") {
         // write to log file
-        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"token string empty"}');
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"password string empty"}');
         return FALSE;
     }
-    return $v['token'];
+    // user config exists?
+    $userdatapath = $env['data_dir_path_abs']."/users/".$v['user']."/userdata.yaml";
+    if(!file_exists($userdatapath)) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"user config file does not exist"}');
+        return FALSE;
+    }
+    // read user data
+    $userdata = spyc_load_file($userdatapath);
+    // minimum check: pass set in user config?
+    if(!isset($userdata['pass'])) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"password not set in user config"}');
+        return FALSE;
+    } 
+    // password matches?
+    if(md5($v['pass'].$env['salt']) != $userdata['pass']) {
+        // write to log file
+        logWrite('{"type":"ERROR","function":"'.__FUNCTION__.'","message":"password does not match"}');
+        return FALSE;
+    } 
+    return TRUE;
 }
-
 /*************************************
 * Logging
 */

@@ -9,6 +9,8 @@
  */
 
 $env['data_obscurity']      = "datasecretaj38ja998gjair8we";
+$env['salt']                = "iqewrköadansödfliwöuerkldkf";
+$env['time_out']            = "60"; // if user is inactive, after set seconds s/he will be logged out, tokens expire
 $env['debug']               = "true";
 $env['log_events']          = "SUCCESS, ERROR, CONTEXT, DEBUG"; // comma separated even types (ERROR, INFO, WARNING, SUCCESS, CONTEXT, DEBUG)
 
@@ -20,13 +22,15 @@ $env['url_curl']    = $env['url_root']."/curl.php";
 /* 
 * paths and libraries
 */
-$env['root_path_abs']           = "/var/www/html/docmint";
-$env['libs_dir_path_abs']       = $env['nonwww_dir_path_abs']."/libs";
-$env['logs_dir_path_abs']       = $env['nonwww_dir_path_abs']."/logs";
-$env['require_dir_path_abs']    = $env['nonwww_dir_path_abs']."/require";
-$env['data_dir_path_abs']       = $env['nonwww_dir_path_abs']."/".$env['data_obscurity'];
-$env['smarty_class_path_abs']   = $env['libs_dir_path_abs']."/vendor/smarty-3.1.31/libs/Smarty.class.php";
-$env['spyc_class_path_abs']     = $env['libs_dir_path_abs']."/vendor/spyc-master/Spyc.php";
+$env['root_path_abs']               = "/var/www/html/docmint";
+$env['libs_dir_path_abs']           = $env['nonwww_dir_path_abs']."/libs";
+$env['logs_dir_path_abs']           = $env['nonwww_dir_path_abs']."/logs";
+$env['require_dir_path_abs']        = $env['nonwww_dir_path_abs']."/require";
+$env['data_dir_path_abs']           = $env['nonwww_dir_path_abs']."/".$env['data_obscurity'];
+$env['token_dir_path_abs']          = $env['data_dir_path_abs']."/token";
+$env['smarty_class_path_abs']       = $env['libs_dir_path_abs']."/vendor/smarty-3.1.31/libs/Smarty.class.php";
+$env['spyc_class_path_abs']         = $env['libs_dir_path_abs']."/vendor/spyc-master/Spyc.php";
+$env['jwt_class_path_abs']          = $env['libs_dir_path_abs']."/vendor/php-jwt-5.0.0/src/JWT.php";
 
 /*
 * relative paths for web

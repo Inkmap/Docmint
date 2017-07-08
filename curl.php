@@ -19,7 +19,7 @@ require_once($env['libs_dir_path_abs'].'/PHP-kit-func.php');
 /*
 * log this call
 */
-logWrite('{"type":"INFO","file":"'.__FILE__.'","message":"curl.php file called"}');
+logWrite('{"type":"DEBUG","file":"'.__FILE__.'","message":"curl.php file called"}');
 
 /*
 * loading required classes for reading page config 
@@ -32,11 +32,9 @@ require_once($env['spyc_class_path_abs']);
 $ses = $_POST;
 
 /*
-* Check user token to see if this call is valid
+* Check user rights
+* TODO
 */
-if(!checkUserToken('{"user":"'.$ses['user'].'","token":"'.$ses['token'].'"}')) {
-    die('{"type":"ERROR","message":"invalid token"}');
-}
 
 /*
 * start interpreting the REST command
