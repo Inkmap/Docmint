@@ -5,9 +5,10 @@
     <meta charset="utf-8">
 
     <title>{$page.meta.title}</title>
-
-    <meta name="description" content="{$page.meta.description}">
-    <meta name="author" content="{$page.meta.author}">
+<!--
+{*$page|print_r*}
+-->
+{include 'tpl/html_head_meta_social.tpl'}
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -76,7 +77,7 @@
             left: 0;
             right: 0;
             bottom: -10px;
-            background: #fff;
+            background: #440;
             top: auto;
             margin: 0 auto;
             padding: 0 20px;
@@ -107,20 +108,20 @@
 {*$page|print_r*}
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
-{foreach item=slide from=$page.content}
+{foreach item=slide from=$page.elements}
 {if $slide.body|is_array}
             <section>
-{foreach item=child from=$slide.body}
+{foreach item=child from=$slide.content}
                 <!-- child -->
                 <section {foreach key=key item=item from=$child.attributes}{$key}="{$item}" {/foreach}>
-                    {$child.body}
+                    {$child.content}
                 </section>
                 <!-- / child -->
 {/foreach}
             </section>
 {else}
             <section {foreach key=key item=item from=$slide.attributes}{$key}="{$item}" {/foreach}>
-                {$slide.body}
+                {$slide.content}
             </section>
 {/if}            
 {/foreach}
@@ -240,16 +241,23 @@
         		{*// Specify custom panels to be included in the menu, by
         		// providing an array of objects with 'title', 'icon'
         		// properties, and either a 'src' or 'content' property.*}
-        	    custom: [
+
+{if isset($page.menuPanels)}
+    {foreach item=panel from=$page.menuPanels}
+        {if $panel@first}
+        custom: [
+        {/if}
+            {literal}{{/literal} 
+			             title: '{$panel.panelTitle}', 
+			             icon: '<i class="fa fa-{$panel.panelIcon}">', 
+			             src: '{$panel.panelUrl}'
+			         {literal}}{/literal}{if $panel@last}
+			         
+			         ]{else},
+			         {/if}
+    {/foreach}
+{/if}
 {literal}
-			         { 
-{/literal}
-			             title: 'Home', 
-			             icon: '<i class="fa  fa-arrow-up">', 
-			             content: '<img src="http://pong-berlin.de/sites/default/files/images/general/banner/tiefenschaerfe_banner-5.jpg"><br/><h4>Hello</h4>' 
-{literal}
-			         }
-		        ]
             },
 
             // Optional reveal.js plugins

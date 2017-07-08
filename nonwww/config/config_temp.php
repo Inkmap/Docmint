@@ -1,8 +1,7 @@
 <?php
-
 /**
- * @package    WebDocCanvas
- * @link       https://github.com/Inkmap/WebDocCanvas
+ * @package    Docmint
+ * @link       https://github.com/Inkmap/Docmint
  * @author     Micz Flor https://github.com/MiczFlor
  * @copyright  2017 the authors
  * @version    20170512

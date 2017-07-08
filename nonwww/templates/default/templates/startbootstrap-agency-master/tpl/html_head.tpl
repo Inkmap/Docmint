@@ -2,14 +2,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Micz Flor" >
 
     <title>{$page.meta.titleTag}</title>
 <!--
 {*$page|print_r*}
 -->
-{include 'startbootstrap-agency-master/tpl/html_head_meta_social.tpl'}
+{include 'tpl/html_head_meta_social.tpl'}
 
     <!-- Bootstrap Core CSS -->
     <link href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/{$page.meta.theme}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +22,7 @@
     <!-- Theme CSS -->
     <link href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/{$page.meta.theme}/css/agency.css" rel="stylesheet">
     <link href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/{$page.meta.theme}/css/timelineSimple.css" rel="stylesheet">
+    <link href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/{$page.meta.theme}/css/portfolio.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -148,20 +148,22 @@
 }
 @media (min-width: 1200px) {
   .timeline > li {
-    min-height: 220px;
+    min-height: 200px;
   }
   .timeline > li .timeline-panel {
-    padding: 0 20px 20px 100px;
+    padding: 0 20px 0 120px;
   }
   .timeline > li .timeline-image {
-    width: 220px;
-    height: 220px;
-    margin-left: -110px;
+    width: 200px;
+    height: 200px;
+    margin-left: -100px;
   }
   .timeline > li .timeline-image h4 {
-    margin-top: 40px;
+    font-size: 18px;
+    margin-top: 30px;
+    line-height: 26px;
   }
   .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 100px 20px 20px;
+    padding: 0 20px 0 120px;
   }
 }

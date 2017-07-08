@@ -22,5 +22,6 @@ require_once($env['libs_dir_path_abs'].'/PHP-kit-func.php');
 */
 require_once($env['smarty_class_path_abs']);
 require_once($env['spyc_class_path_abs']);
+require_once($env['jwt_class_path_abs']);
 
 ?>

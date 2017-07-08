@@ -12,13 +12,20 @@
 {assign var="itemcounter" value=1}            
 {foreach $e.content.items as $item}        
                 <div class="col-md-3 col-sm-6 portfolio-item">
-                    <a href="#4portfolioModal{$itemcounter}" class="portfolio-link" data-toggle="modal">
+                    <a href="#portfolioModal{$itemcounter}" class="portfolio-link" data-toggle="modal" style="
+                        background: url({$item.imgUrl}) no-repeat center center; 
+                        -webkit-background-size: cover;
+                        -moz-background-size: cover;
+                        -o-background-size: cover;
+                        background-size: cover;
+                        height: 280px;
+                    ">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="{$item.imgUrl}" class="img-responsive" alt="{if isset($item.imgText)}{$item.imgText}{/if}">
+                        {*<img src="{$item.imgUrl}" class="img-responsive" alt="{if isset($item.imgText)}{$item.imgText}{/if}">*}
                     </a>
                     <div class="portfolio-caption">
                         <h4>{$item.title}</h4>
@@ -41,7 +48,7 @@
 {assign var="itemcounter" value=1}            
 {foreach $e.content.items as $item}  
     <!-- Portfolio Modal -->
-    <div class="portfolio-modal modal fade" id="4portfolioModal{$itemcounter}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="portfolioModal{$itemcounter}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
