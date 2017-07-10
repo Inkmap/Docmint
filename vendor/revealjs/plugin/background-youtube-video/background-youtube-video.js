@@ -195,7 +195,10 @@ var startBackgroundYoutubeVideo = function(currentSlide) {
 
         document.querySelector('#background-youtube-video-controls-' + videoId).style.display = 'none';
 
-        backgroundYoutubeVideoPlayers[videoId].stopVideo();
+        if (typeof backgroundYoutubeVideoPlayers[videoId].stopVideo === 'function') {
+            backgroundYoutubeVideoPlayers[videoId].stopVideo();
+        }
+
     });
 
     if (backgroundYoutubeVideoId) {
