@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>{$page.meta.title}</title>
+    <title>{$page.meta.titleTag}</title>
 <!--
 {*$page|print_r*}
 -->
@@ -19,18 +19,20 @@
     <link rel="stylesheet" href="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/css/theme/{$page.meta.skin}.css" id="theme">
 
     <!--[if lt IE 9]>
-		<script src="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/lib/js/html5shiv.js"></script>
-		<![endif]-->
+        <script src="{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}vendor/revealjs/lib/js/html5shiv.js"></script>
+    <![endif]-->
 
     <style type="text/css">
         .reveal .slide-number {
             font-size: 0.6em;
         }
+        .txtshadowthick {
+            text-shadow: 2px 2px 5px #000!important;
+        }
     
         /* styles for background youtube video */
-            
+        
         .reveal .background-youtube-video {
-            background-color: red;
             position: absolute;
             left: 0;
             right: 0;
@@ -54,6 +56,8 @@
             justify-content: center;
             text-align: center;
             display: none;
+            margin: 0 auto;
+            width: 200px;
         }
         
         .background-youtube-video-controls div {
@@ -64,7 +68,6 @@
             cursor: pointer;
             font-family: Arial, Helvetica, sans-serif;
             fill: #fff;
-        }
         
         /* styles for slidein modal */
         
@@ -132,7 +135,7 @@
 {assign var="dataTimelineSlidein" value="data-timeline-slidein"}
 {*$child.attributes.$dataTimelineSlidein*}
 
-{foreach item=slide from=$page.content}
+{foreach item=slide from=$page.elements}
     {if $slide.body|is_array}
         {foreach item=child from=$slide.body}
             {if isset($child.modalBody)}
