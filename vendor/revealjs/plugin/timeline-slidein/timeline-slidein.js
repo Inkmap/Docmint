@@ -19,7 +19,7 @@ if (slideInModals.length > 0) {
     });
 }
 
-Reveal.addEventListener('slidechanged', function(event) {
+var showModal = function(event) {
     var modalId = event.currentSlide.getAttribute('data-timeline-slidein') || false;
     var modalDelay = event.currentSlide.getAttribute('data-timeline-slidein-delay') || 500;
     var modalDuration = event.currentSlide.getAttribute('data-timeline-slidein-duration') || 5000;
@@ -43,4 +43,12 @@ Reveal.addEventListener('slidechanged', function(event) {
             document.querySelector('#' + modalId).className = "slidein-modal";
         }, modalDuration);
     }
+}
+
+Reveal.addEventListener('ready', function(event) {
+    showModal(event);
+});
+
+Reveal.addEventListener('slidechanged', function(event) {
+    showModal(event);
 });
