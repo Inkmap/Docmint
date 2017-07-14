@@ -1,9 +1,7 @@
 <!doctype html>
 <html lang="{$page.meta.language}">
-
 <head>
     <meta charset="utf-8">
-
     <title>{$page.meta.titleTag}</title>
 <!--
 {*$page|print_r*}
@@ -68,26 +66,27 @@
             cursor: pointer;
             font-family: Arial, Helvetica, sans-serif;
             fill: #fff;
+        }
         
         /* styles for slidein modal */
         
-        .reveal .slidein-modal {
-            height: 350px;
-            transform: translateY(350px);
-            transition: transform 400ms;
-            opacity: 0;
+        .reveal .slidein-modal { 
+            height: 550px;
+            transform: translateY(550px);
+            transition: transform 200ms;
+            padding: 0 20px;
+            opacity: 1;
             position: fixed;
             left: 0;
             right: 0;
             bottom: -10px;
-            background: #440;
             top: auto;
             margin: 0 auto;
-            padding: 0 20px;
         }
         
         .reveal .slidein-modal--active {
-            transform: translateY(0);
+            transform: translateY(0px);
+            transition: transform 400ms;
             opacity: 1;
             z-index: 10;
         }
@@ -112,7 +111,7 @@
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
 {foreach item=slide from=$page.elements}
-{if $slide.body|is_array}
+{if $slide.content|is_array}
             <section>
 {foreach item=child from=$slide.content}
                 <!-- child -->
@@ -136,19 +135,19 @@
 {*$child.attributes.$dataTimelineSlidein*}
 
 {foreach item=slide from=$page.elements}
-    {if $slide.body|is_array}
-        {foreach item=child from=$slide.body}
-            {if isset($child.modalBody)}
+    {if $slide.content|is_array}
+        {foreach item=child from=$slide.content}
+            {if isset($child.modal)}
             
-        <div class="slidein-modal" id="{$child.attributes.$dataTimelineSlidein}">
-            {$child.modalBody}
+        <div class="slidein-modal" id="{$child.attributes.$dataTimelineSlidein}" style="{include 'revealjs/tpl/snippet_styleModal.tpl'}">
+            {if isset($child.modal.content)}{$child.modal.content}{/if}
         </div>
             {/if}
         {/foreach}
     {else}
-        {if isset($slide.modalBody)}
-        <div class="slidein-modal" id="{$slide.attributes.$dataTimelineSlidein}">
-        {$slide.modalBody}
+        {if isset($slide.modal)}
+        <div class="slidein-modal" id="{$slide.attributes.$dataTimelineSlidein}" style="{include 'revealjs/tpl/snippet_styleModal.tpl'}">
+            {if isset($slide.modal.content)}{$slide.modal.content}{/if}
         </div>
         {/if}
     {/if}            
@@ -268,11 +267,6 @@
                 src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/lib/js/classList.js',
                 condition: function() {
                     return !document.body.classList;
-                }
-            }, {
-                src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/plugin/markdown/marked.js',
-                condition: function() {
-                    return !!document.querySelector('[data-markdown]');
                 }
             }, {
                 src: '{/literal}{if isset($page.relPathPrefix)}{$page.relPathPrefix}{/if}{literal}vendor/revealjs/plugin/markdown/markdown.js',

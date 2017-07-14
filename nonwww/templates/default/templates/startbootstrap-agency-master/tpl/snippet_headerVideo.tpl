@@ -1,5 +1,5 @@
 <!-- tpl/{$smarty.template} -->
-<header {if isset($e.meta.id)}id="{$e.meta.id}"{/if} {include 'startbootstrap-agency-master/tpl/snippet_styleSection.tpl'}>
+<header {if isset($e.meta.id)}id="{$e.meta.id}"{/if} style="{include 'startbootstrap-agency-master/tpl/snippet_styleSection.tpl'}">
         <div class="container">
             <div class="row">  
                 <div class="col-md-6 col-md-12">

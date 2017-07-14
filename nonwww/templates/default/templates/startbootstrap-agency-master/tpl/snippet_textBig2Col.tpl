@@ -1,6 +1,6 @@
 <!-- tpl/{$smarty.template} -->
     <!-- Portfolio Grid Section -->
-    <section {if isset($e.meta.id)}id="{$e.meta.id}"{/if} {include 'startbootstrap-agency-master/tpl/snippet_styleSection.tpl'}>
+    <section {if isset($e.meta.id)}id="{$e.meta.id}"{/if} style="{include 'startbootstrap-agency-master/tpl/snippet_styleSection.tpl'}">
         <div class="container">
 {if isset($e.content.title)}
             <div class="row">
