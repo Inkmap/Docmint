@@ -1,6 +1,6 @@
 <!-- tpl/{$smarty.template} -->
     <!-- Clients Aside -->
-    <aside {if isset($e.meta.id)}id="{$e.meta.id}"{/if} class="clients" {include 'startbootstrap-agency-master/tpl/snippet_styleSection.tpl'}>
+    <aside {if isset($e.meta.id)}id="{$e.meta.id}"{/if} class="clients" style="{include 'startbootstrap-agency-master/tpl/snippet_styleSection.tpl'}">
         <div class="container">
             <div class="row">  
 {foreach $e.content.items as $item}  

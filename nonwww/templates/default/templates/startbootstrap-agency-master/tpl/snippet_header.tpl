@@ -1,6 +1,6 @@
 <!-- tpl/{$smarty.template} -->
     <!-- Header -->
-    <header {if isset($e.meta.id)}id="{$e.meta.id}"{/if} {include 'startbootstrap-agency-master/tpl/snippet_styleSection.tpl'}>
+    <header {if isset($e.meta.id)}id="{$e.meta.id}"{/if} style="{include 'startbootstrap-agency-master/tpl/snippet_styleSection.tpl'}">
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in {include 'animatecss/snippet_customAnimateClass.tpl' customField='subTitle'}" style=" {include 'animatecss/snippet_customAnimateStyle.tpl' customField='subTitle'}">{$e.content.subTitle}</div>

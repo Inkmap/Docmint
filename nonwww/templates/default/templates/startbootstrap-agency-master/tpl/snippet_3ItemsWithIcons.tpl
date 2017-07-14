@@ -1,6 +1,6 @@
 <!-- tpl/{$smarty.template} -->
     <!-- Services Section -->
-    <section {if isset($e.meta.id)}id="{$e.meta.id}"{/if} {include 'startbootstrap-agency-master/tpl/snippet_styleSection.tpl'}>
+    <section {if isset($e.meta.id)}id="{$e.meta.id}"{/if} style="{include 'startbootstrap-agency-master/tpl/snippet_styleSection.tpl'}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
