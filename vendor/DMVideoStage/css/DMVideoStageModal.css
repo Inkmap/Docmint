@@ -1,0 +1,185 @@
+        
+.modal {
+    max-height: calc(100% - 100px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    padding: 10px;
+}
+.modalCenterCenter16To9 {
+    width: 1920px;
+    max-width: 60%;
+    height: auto;
+    max-height: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modalFullTopCenter {
+    overflow: hidden;
+    width: 800px;
+    max-width: 95%;
+    height: 200px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blue;
+    padding: 10px;
+}
+.modalFullBottomCenter {
+    overflow: hidden;
+    width: 800px;
+    max-width: 95%;
+    height: 200px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: green;
+    padding: 10px;
+}
+.modalCenterRight {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    background-color: yellow;
+    padding: 10px;
+}
+.modalCenterLeft {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-color: orange;
+    padding: 10px;
+}
+.modalCenterCenter {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: silver;
+    padding: 10px;
+}
+.modalBottomCenter {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: gold;
+    padding: 10px;
+}
+.modalBottomLeft {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-color: lemonchiffon;
+    padding: 10px;
+}
+.modalBottomRight {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    background-color: lemonchiffon;
+    padding: 10px;
+}
+.modalTopCenter {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: gainsboro;
+    padding: 10px;
+}
+.modalTopLeft {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-color: blueviolet;
+    padding: 10px;
+}
+.modalTopRight {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    background-color: rosybrown;
+    padding: 10px;
+}
+@media only screen and (max-width: 500px) {
+    .modalFullTopCenter,
+    .modalFullBottomCenter,
+    .modalTopLeft,
+    .modalTopCenter,
+    .modalTopRight,
+    .modalCenterCenter,
+    .modalCenterLeft,
+    .modalCenterRight,
+    .modalBottomLeft,
+    .modalBottomCenter,
+    .modalBottomRight {
+        position: relative;
+        margin-bottom: 10px;
+        max-width: 100%;
+        max-height: 240px;
+        overflow: hidden;
+        top: auto;
+        left: auto;
+        transform: none;
+    } 
+}

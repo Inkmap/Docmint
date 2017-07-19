@@ -6,10 +6,12 @@
 
 function renderPageHtmlUrl(&$item, $key, $relPathPrefix) {
     if($key == "url" || $key == "imgUrl" || $key == "bgImgUrl" || $key == "socialImgUrl" || $key == "data-background") {
-        if(string_startsWith($item, "#")) {
+        if(string_startsWith($item, "|")) {
             /*
             * relative path within page
+            * replace pipe with hash - which is a comment in YAML
             */
+            $item = $relPathPrefix."#".ltrim($item, '|');
         } elseif(string_startsWith($item, "http")) {
             /*
             * external link
