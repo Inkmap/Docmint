@@ -19,7 +19,7 @@ require_once($env['libs_dir_path_abs'].'/PHP-kit-func.php');
 /*
 * log this call
 */
-logWrite('{"type":"DEBUG","file":"'.__FILE__.'","message":"curl.php file called"}');
+//logWrite('{"type":"DEBUG","file":"'.__FILE__.'","message":"curl.php file called"}');
 
 /*
 * loading required classes for reading page config 

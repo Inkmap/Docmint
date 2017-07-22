@@ -7,7 +7,7 @@ logWrite(
     json_encode(
         array(
             "type" => "DEBUG",
-            "message" => "Starting smarty compilation",
+            "message" => "SMARTY compilation",
             "file" => __FILE__,
             "fileLine" => __LINE__,
             "pageconfig.meta" => $page['meta'],
@@ -60,7 +60,7 @@ $html .= $smarty->fetch($page['meta']['theme'].'/tpl/snippet_navTop.tpl');
 foreach($page['elements'] as $element) {
     //print "<pre>\$element\n"; print_r($element); print "</pre>";
     $smarty->assign('e',$element);
-/**/
+/**
 logWrite(
     json_encode(
         array(

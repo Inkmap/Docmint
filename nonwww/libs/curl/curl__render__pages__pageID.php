@@ -40,6 +40,7 @@ if(!isset($rest[2])) {
                 )
             );
         } else {
+            /*
             logWrite(
                 json_encode(
                     array(
@@ -52,6 +53,7 @@ if(!isset($rest[2])) {
                     )
                 )
             );
+            /**/
         }
         /*
         * Read page content 
@@ -62,7 +64,8 @@ if(!isset($rest[2])) {
         */
         foreach($projectdata['meta'] as $key => $value) {
             if(!isset($page['meta'][$key])) {
-                $page['meta'][$key] = $value;                
+                $page['meta'][$key] = $value;  
+                /*              
                 logWrite(
                     json_encode(
                         array(
@@ -74,6 +77,7 @@ if(!isset($rest[2])) {
                         )
                     )
                 );
+                /**/
             }
         }
         /*

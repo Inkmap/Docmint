@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
-<html lang="{$page.meta.language}">
+<html {if isset($page.meta.language)} lang="{$page.meta.language}"{/if}>
     <meta charset="UTF-8">
     <title>{$page.meta.titleTag}</title>
 <!--
-{$page|print_r}
+{*$page|print_r*}
 -->
 {include 'tpl/html_head_meta_social.tpl'}
 

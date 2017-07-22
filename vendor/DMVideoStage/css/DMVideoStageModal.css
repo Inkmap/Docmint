@@ -17,6 +17,18 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.modalFullCenter {
+    overflow: hidden;
+    width: 800px;
+    max-width: 95%;
+    height: 600px;
+    max-height: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
 .modalFullTopCenter {
     overflow: hidden;
     width: 800px;
@@ -41,7 +53,31 @@
     transform: translate(-50%, -50%);
     padding: 10px;
 }
-.modalCenterRight {
+.modal3x3-x1-y2 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x2-y2 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x3-y2 {
     overflow: hidden;
     width: 800px;
     max-width: 30%;
@@ -53,43 +89,7 @@
     transform: translate(-50%, -50%);
     padding: 10px;
 }
-.modalCenterLeft {
-    overflow: hidden;
-    width: 800px;
-    max-width: 30%;
-    height: 600px;
-    max-height: 30%;
-    position: fixed;
-    top: 50%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-}
-.modalCenterCenter {
-    overflow: hidden;
-    width: 800px;
-    max-width: 30%;
-    height: 600px;
-    max-height: 30%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-}
-.modalBottomCenter {
-    overflow: hidden;
-    width: 800px;
-    max-width: 30%;
-    height: 600px;
-    max-height: 30%;
-    position: fixed;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-}
-.modalBottomLeft {
+.modal3x3-x1-y1 {
     overflow: hidden;
     width: 800px;
     max-width: 30%;
@@ -101,7 +101,19 @@
     transform: translate(-50%, -50%);
     padding: 10px;
 }
-.modalBottomRight {
+.modal3x3-x2-y1 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x3-y1 {
     overflow: hidden;
     width: 800px;
     max-width: 30%;
@@ -113,19 +125,7 @@
     transform: translate(-50%, -50%);
     padding: 10px;
 }
-.modalTopCenter {
-    overflow: hidden;
-    width: 800px;
-    max-width: 30%;
-    height: 600px;
-    max-height: 30%;
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-}
-.modalTopLeft {
+.modal3x3-x1-y3 {
     overflow: hidden;
     width: 800px;
     max-width: 30%;
@@ -137,7 +137,19 @@
     transform: translate(-50%, -50%);
     padding: 10px;
 }
-.modalTopRight {
+.modal3x3-x2-y3 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x3-y3 {
     overflow: hidden;
     width: 800px;
     max-width: 30%;
@@ -150,17 +162,18 @@
     padding: 10px;
 }
 @media only screen and (max-width: 500px) {
+    .modalFullCenter,
     .modalFullTopCenter,
     .modalFullBottomCenter,
-    .modalTopLeft,
-    .modalTopCenter,
-    .modalTopRight,
-    .modalCenterCenter,
-    .modalCenterLeft,
-    .modalCenterRight,
-    .modalBottomLeft,
-    .modalBottomCenter,
-    .modalBottomRight {
+    .modal3x3-x1-y1,
+    .modal3x3-x2-y1,
+    .modal3x3-x3-y1,
+    .modal3x3-x2-y2,
+    .modal3x3-x1-y2,
+    .modal3x3-x3-y2,
+    .modal3x3-x1-y1,
+    .modal3x3-x2-y1,
+    .modal3x3-x3-y1 {
         position: relative;
         margin-bottom: 10px;
         max-width: 100%;
